@@ -1,0 +1,18 @@
+
+
+body {
+    background-color: blue;
+}
+
+.container {
+    background-color: aquamarine;
+    width: 75%;
+    height: 600px;
+    margin: auto;
+}
+
+#frog0 {
+    background-color: coral;
+    width: 100px;
+    height: 100px;
+}
