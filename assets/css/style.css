@@ -4,15 +4,52 @@ body {
     background-color: blue;
 }
 
+img {
+    max-width: 100%;
+}
+
 .container {
-    background-color: aquamarine;
     width: 75%;
-    height: 600px;
     margin: auto;
+    position: relative;
 }
 
 #frog0 {
-    background-color: coral;
-    width: 100px;
-    height: 100px;
+    width: 6vw;
+    height: 6vw;
+    position: absolute;
+    bottom: 6%;
+    left: 16.5%;
+}
+
+#frog1 {
+    width: 7vw;
+    height: 7vw;
+    position: absolute;
+    bottom: 25%;
+    left: 39%;
+}
+
+#frog2 {
+    width: 7vw;
+    height: 7vw;
+    position: absolute;
+    bottom: 50%;
+    left: 53%;
+}
+
+#frog3 {
+    width: 6vw;
+    height: 6vw;
+    position: absolute;
+    bottom: 34%;
+    left: 85%;
+}
+
+#frog4 {
+    width: 6vw;
+    height: 6vw;
+    position: absolute;
+    bottom: 55%;
+    left: 83%;
 }
