@@ -11,3 +11,7 @@ The frogs will ribbet in a random order and the player will have to play back th
 
 Credit
 Pond background image - https://www.vecteezy.com/vector-art/521836-a-pond-with-many-plants 
+
+bugs
+
+1. Intermittent on click audio bug not playing audio

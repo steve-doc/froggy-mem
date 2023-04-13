@@ -2,16 +2,40 @@
 
 body {
     background-color: blue;
+    color: white;
+    padding: 0;
+    margin: 0;
 }
 
 img {
     max-width: 100%;
 }
 
+header {
+    width: 75%;
+    text-align: center;
+    margin: auto;
+    background-color: #6daa30;
+}
+
+.score-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
 .container {
     width: 75%;
     margin: auto;
     position: relative;
+}
+
+.frog {
+
+}
+
+.frog:hover img {
+    border: 2px solid white;
 }
 
 #frog0 {
@@ -42,14 +66,14 @@ img {
     width: 6vw;
     height: 6vw;
     position: absolute;
-    bottom: 34%;
-    left: 85%;
+    bottom: 54%;
+    left: 83.5%;
 }
 
 #frog4 {
     width: 6vw;
     height: 6vw;
     position: absolute;
-    bottom: 55%;
-    left: 83%;
+    bottom: 34%;
+    left: 85%;
 }
