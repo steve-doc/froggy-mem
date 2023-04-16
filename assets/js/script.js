@@ -19,7 +19,35 @@ document.addEventListener("DOMContentLoaded", function () {
 /**
  * main game function
  */
-// function runGame(){
-//     let level = document.getElementById("level-count");
-//     let score = 
-// }
+function runGame(){
+    let level = document.getElementById("level-count").innerText.length ;
+    let score = parseInt(document.getElementById("score-count").innerText);
+    console.log(level, score);
+
+
+}
+
+
+function introBox {
+    
+}
+
+function setLevel(){
+
+}
+
+function timer() {
+
+}
+
+function incrementScore() {
+
+}
+
+function decrementLives() {
+
+}
+
+function gameOver() {
+
+}

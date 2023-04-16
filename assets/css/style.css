@@ -5,12 +5,14 @@ body {
     color: white;
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 img {
     max-width: 100%;
 }
 
+/* Header and scoring */
 header {
     width: 75%;
     text-align: center;
@@ -24,10 +26,37 @@ header {
     padding: 0 5%;
 }
 
+
+
 .container {
     width: 75%;
-    margin: auto;
+    margin: 0 auto;
     position: relative;
+}
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 5px inset blue;
+    background-color: aqua;
+    width: 25%;
+    position: absolute;
+    bottom: 40%;
+    left: 40%;
+    padding: 3em 0;
+    visibility: hidden;
+}
+
+.btn {
+    width: 60%;
+    justify-content: center;
+    margin: 5%;
+    background-color: green;
+    border: 1px solid black;
+    border-radius: 30px;
+
 }
 
 .frog {
@@ -35,7 +64,7 @@ header {
 }
 
 .frog:hover img {
-    border: 2px solid white;
+    outline: 2px solid white;
 }
 
 #frog0 {
