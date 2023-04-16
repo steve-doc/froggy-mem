@@ -46,7 +46,6 @@ header {
     bottom: 40%;
     left: 40%;
     padding: 3em 0;
-    visibility: hidden;
 }
 
 .btn {
@@ -55,6 +54,7 @@ header {
     margin: 5%;
     background-color: green;
     border: 1px solid black;
+    box-shadow: 3px solid grey;
     border-radius: 30px;
 
 }

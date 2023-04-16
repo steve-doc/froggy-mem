@@ -2,8 +2,22 @@
 // Get the frog elements and add event listeners to them
 
 document.addEventListener("DOMContentLoaded", function () {
+    
     let frogs = document.getElementsByClassName("frog");
-    // console.log(frogs);
+
+    let buttons = document.getElementsByTagName("button");
+    console.log(buttons);
+
+    for (let button of buttons) {
+        button.addEventListener("click", function() {
+            if (this.getAttribute("data-type") === "play") {
+                console.log(this.innerText);
+                runGame();
+            } else  {
+                rules();
+        }
+    })
+    }
 
     for (let frog of frogs) {
         frog.addEventListener("click", function() {
@@ -20,19 +34,24 @@ document.addEventListener("DOMContentLoaded", function () {
  * main game function
  */
 function runGame(){
-    let level = document.getElementById("level-count").innerText.length ;
+    let level = parseInt(document.getElementById("level-count").innerText);
     let score = parseInt(document.getElementById("score-count").innerText);
-    console.log(level, score);
+    let lives = document.getElementById("life-count").innerText.length;
+    console.log(level, score, lives);
 
 
 }
 
+function rules() {
 
-function introBox {
+}
+
+
+function introBox() {
     
 }
 
-function setLevel(){
+function setLevel() {
 
 }
 
