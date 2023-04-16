@@ -34,7 +34,7 @@ header {
     position: relative;
 }
 
-.welcome-container {
+#welcome-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,7 +45,7 @@ header {
     position: absolute;
     bottom: 40%;
     left: 40%;
-    padding: 3em 0;
+    padding: 1em 0;
 }
 
 .btn {
@@ -106,3 +106,4 @@ header {
     bottom: 34%;
     left: 85%;
 }
+

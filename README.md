@@ -11,6 +11,7 @@ The frogs will ribbet in a random order and the player will have to play back th
 
 Credit
 Pond background image - https://www.vecteezy.com/vector-art/521836-a-pond-with-many-plants 
+frog sounds - https://quicksounds.com/search/filter/tracks/frog and edited with Vector 2 Exress
 
 bugs
 
