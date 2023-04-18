@@ -7,12 +7,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let buttons = document.getElementsByTagName("button");
     console.log(buttons);
+    const audioList = [
+        new Audio('../assets/audio/greytree-frog.mp3'),
+        new Audio('../assets/audio/medium-frog.mp3'),
+        new Audio('../assets/audio/small-frog.mp3'),
+        new Audio('../assets/audio/leopard-frog.mp3'),
+        new Audio('../assets/audio/tree-frog.mp3'),
+      ];
+
+    // Event listeners for frogs that play audio in each div
+    let frogs = document.getElementsByClassName("frog");
+    for (let frog of frogs) {
+        frog.addEventListener("click", function() {
+            let audio = frog.getElementsByTagName("audio")[0];
+            audio.currentTime = 0;
+            audio.play();
+            frog.classList.add("hlFrog");
+        }) 
+
+        frog.addEventListener("transitionend", function() {
+            frog.classList.remove("hlFrog");
+        }) 
+    }
+
+
 
     for (let button of buttons) {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "play") {
                 console.log(this.innerText);
-                runGame();
+                runGame(audioList);
             } else  {
                 rules();
         }
@@ -26,59 +50,78 @@ document.addEventListener("DOMContentLoaded", function () {
 /**
  * main game function
  */
-function runGame(){
+function runGame(audioList){
 
     let welcome = document.getElementById("welcome-container");
     let level = parseInt(document.getElementById("level-count").innerText);
     let score = parseInt(document.getElementById("score-count").innerText);
     let lives = document.getElementById("life-count").innerText.length;
-    let frogs = document.getElementsByClassName("frog");
+
     let frogNum = 3
     let frogSeq = []
-    // console.log(welcome);
-    // console.log("level: ", level);
-    // console.log("Score: ", score,);
-    // console.log("Lives: ", lives);
-    // console.log("Frog number: ", frogNum);
-    console.log("FrogSeq: ", frogSeq);
+
+    console.log(audioList);
 
     // Hide welcome container
     welcome.style.display === "none"
 
-    // Event listeners for frogs that play audio in each div
-    for (let frog of frogs) {
-        frog.addEventListener("click", function() {
-            let audio = frog.getElementsByTagName("audio")[0];
-            audio.currentTime = 0;
-            audio.play();
-        }) 
-    }
+
 
     // generate random numbers and add to frog play sequence array    
     for (i=0; i < frogNum; i++) {
        let num1 = Math.floor(Math.random() * frogNum) ;
-       console.log(num1);
        frogSeq.push(num1);
     }
     console.log(frogSeq)
 
+    let currentAudioSequence = []
+    for (i=0; i<frogSeq.length; i++) {
+        currentAudioSequence.push(audioList[frogSeq[i]]);
+    }
+
     // play frogs in sequence
 
-    for (let frogNum of frogSeq) {
-    
-        setTimeout(playFrog(frogNum), 1000); 
-    }
+    currentAudioSequence.forEach(s => playFrog(s));
+
+    // function playAudio() {
+    //     for (let i=0; i < audioList.length; i++) {
+    //         const audio = audioList[i];
+    //         audio.currentTime = 0;
+    //         audio.play();
+    //         sleep(1000);
+    //     }
+    //   }
+
+// for (let frog of frogSeq) {
+//     playFrog(a[frog]);
+// }
+
+
+
+
+
+
+
 
 
     // Reinstate welcome container
-    welcome.style.display === "block"
+    welcome.style.display === "block";
 
 }
 
-function playFrog(frogNum) {
-    let frogs = document.getElementsByClassName("frog");
-    let nextFrog = frogs[frogNum].getElementsByTagName("audio")[0];
-    nextFrog.play();
+
+
+/** 
+ * play frog sound
+*/
+function playFrog(sound) {
+    sound.currentTime = 0;
+    sound.play();
+    sleep(1000);
+}
+
+function hlFrog() {
+    frog = document.getElementsByClassName("frog");
 }
 
 function rules() {
@@ -92,6 +135,17 @@ function introBox() {
 
 function setLevel() {
 
+}
+
+/** 
+ * create delay after playing audio to stopp sequence playing asynchonously 
+ */
+function sleep(ms) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+        currentDate = Date.now();
+    } while (currentDate - date < ms);
 }
 
 function timer() {

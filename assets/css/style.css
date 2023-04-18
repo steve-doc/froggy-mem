@@ -35,7 +35,7 @@ header {
 }
 
 #welcome-container {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -60,50 +60,60 @@ header {
 }
 
 .frog {
-
+    padding: 10px;
+    transition: all 300ms;    
+    border-radius: 50%;
 }
 
-.frog:hover img {
-    outline: 2px solid white;
+.hlFrog {
+    transform: scale(1.1);
+    background-color:rgb(255, 255, 240, 0.5);
+    box-shadow: 0 0 10px #ffc600;
 }
+
+/* .frog:hover {
+    background-color:rgb(255, 255, 240, 0.5);
+    box-shadow: 0 0 10px #ffc600;
+    transform: scale(1.1);
+} */
 
 #frog0 {
     width: 6vw;
     height: 6vw;
     position: absolute;
-    bottom: 6%;
-    left: 16.5%;
+    bottom: 4%;
+    left: 15.5%;
 }
 
 #frog1 {
     width: 7vw;
     height: 7vw;
     position: absolute;
-    bottom: 25%;
-    left: 39%;
+    bottom: 23%;
+    left: 37.5%;
 }
 
 #frog2 {
     width: 7vw;
     height: 7vw;
     position: absolute;
-    bottom: 50%;
-    left: 53%;
+    bottom: 47%;
+    left: 52%;
 }
 
 #frog3 {
     width: 6vw;
     height: 6vw;
     position: absolute;
-    bottom: 54%;
-    left: 83.5%;
+    bottom: 52%;
+    left: 82.5%;
 }
 
 #frog4 {
     width: 6vw;
     height: 6vw;
     position: absolute;
-    bottom: 34%;
-    left: 85%;
+    bottom: 32.5%;
+    left: 84%;
 }
 
