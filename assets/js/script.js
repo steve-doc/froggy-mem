@@ -5,30 +5,26 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
 
+
     let buttons = document.getElementsByTagName("button");
     console.log(buttons);
-    const audioList = [
-        new Audio('../assets/audio/greytree-frog.mp3'),
-        new Audio('../assets/audio/medium-frog.mp3'),
-        new Audio('../assets/audio/small-frog.mp3'),
-        new Audio('../assets/audio/leopard-frog.mp3'),
-        new Audio('../assets/audio/tree-frog.mp3'),
-      ];
+
 
     // Event listeners for frogs that play audio in each div
-    let frogs = document.getElementsByClassName("frog");
-    for (let frog of frogs) {
-        frog.addEventListener("click", function() {
-            let audio = frog.getElementsByTagName("audio")[0];
-            audio.currentTime = 0;
-            audio.play();
-            frog.classList.add("hlFrog");
-        }) 
+    // let frogs = document.getElementsByClassName("frog");
+    // for (let frog of frogs) {
+    //     frog.addEventListener("click", function() {
+    //         let audio = frog.getElementsByTagName("audio")[0];
+    //         audio.currentTime = 0;
+    //         audio.play();
+    //         frog.classList.add("hlFrog");
+    //     }) 
 
-        frog.addEventListener("transitionend", function() {
-            frog.classList.remove("hlFrog");
-        }) 
-    }
+    //     frog.addEventListener("transitionend", function() {
+    //         frog.classList.remove("hlFrog");
+    //     }) 
+    // }
+
 
 
 
@@ -36,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "play") {
                 console.log(this.innerText);
-                runGame(audioList);
+                runGame();
             } else  {
                 rules();
         }
@@ -50,20 +46,27 @@ document.addEventListener("DOMContentLoaded", function () {
 /**
  * main game function
  */
-function runGame(audioList){
+function runGame(){
 
     let welcome = document.getElementById("welcome-container");
     let level = parseInt(document.getElementById("level-count").innerText);
     let score = parseInt(document.getElementById("score-count").innerText);
     let lives = document.getElementById("life-count").innerText.length;
-
+    let frogs = document.getElementsByClassName("frog");
     let frogNum = 3
     let frogSeq = []
 
-    console.log(audioList);
+    const audioList = [
+        new Howl({ src: ['../assets/audio/greytree-frog.mp3']}),
+        new Howl({ src: ['../assets/audio/medium-frog.mp3']}),
+        new Howl({ src: ['../assets/audio/small-frog.mp3']}),
+        new Howl({ src: ['../assets/audio/leopard-frog.mp3']}),
+        new Howl({ src: ['../assets/audio/tree-frog.mp3']}),
+      ];
+
 
     // Hide welcome container
-    welcome.style.display === "none"
+    welcome.style.display = "none"
 
 
 
@@ -72,7 +75,6 @@ function runGame(audioList){
        let num1 = Math.floor(Math.random() * frogNum) ;
        frogSeq.push(num1);
     }
-    console.log(frogSeq)
 
     let currentAudioSequence = []
     for (i=0; i<frogSeq.length; i++) {
@@ -80,32 +82,22 @@ function runGame(audioList){
     }
 
     // play frogs in sequence
+    console.log(frogSeq)
+    for (i = 0; i < frogSeq.length; i++) {
+        console.log(frogSeq[i]);
+        frogs[frogSeq[i]].classList.add("hlFrog");
+        sleep(500);
+        playFrog(currentAudioSequence[i]);
+        frogs[frogSeq[i]].classList.remove("hlFrog");
+    }
 
-    currentAudioSequence.forEach(s => playFrog(s));
-
-    // function playAudio() {
-    //     for (let i=0; i < audioList.length; i++) {
-    //         const audio = audioList[i];
-    //         audio.currentTime = 0;
-    //         audio.play();
-    //         sleep(1000);
-    //     }
-    //   }
-
-// for (let frog of frogSeq) {
-//     playFrog(a[frog]);
-// }
-
-
-
-
-
+    // currentAudioSequence.forEach(s => playFrog(s));
 
 
 
 
     // Reinstate welcome container
-    welcome.style.display === "block";
+    welcome.style.display = "flex";
 
 }
 

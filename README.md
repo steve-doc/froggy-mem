@@ -16,3 +16,4 @@ frog sounds - https://quicksounds.com/search/filter/tracks/frog and edited with 
 bugs
 
 1. Intermittent on click audio bug not playing audio
+2. When playing audio sequence if there are repeats of the same audio it will only play the audio once.
