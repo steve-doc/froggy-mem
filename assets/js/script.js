@@ -9,20 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    // Event listeners for frogs that play audio in each div
-    // let frogs = document.getElementsByClassName("frog");
-    // for (let frog of frogs) {
-    //     frog.addEventListener("click", function() {
-    //         let audio = frog.getElementsByTagName("audio")[0];
-    //         audio.currentTime = 0;
-    //         audio.play();
-    //         frog.classList.add("hlFrog");
-    //     }) 
 
-    //     frog.addEventListener("transitionend", function() {
-    //         frog.classList.remove("hlFrog");
-    //     }) 
-    // }
 
     // Set array variable for frog audio sounds.
     const audioList = [
@@ -60,15 +47,28 @@ document.addEventListener("DOMContentLoaded", function () {
  */
 function runGame(audioList){
 
-    let welcome = document.getElementById("welcome-container");
+    const welcome = document.getElementById("welcome-container");
     let level = parseInt(document.getElementById("level-count").innerText);
     let score = parseInt(document.getElementById("score-count").innerText);
     let lives = document.getElementById("life-count").innerText.length;
-    let frogs = document.getElementsByClassName("frog");
+    const frogs = document.getElementsByClassName("frog");
     let frogNum = 3
     let frogSeq = []
 
+    // Event listeners for frogs that play audio in each div
+    for (let frog of frogs) {
+        frog.addEventListener("click", function(e) {
+            let audio = frog.getElementsByTagName("audio")[0];
+            audio.currentTime = 0;
+            audio.play();
+            frog.classList.add("hlFrog");
+            const clickedFrog = (e.target.parentElement);
+        }) 
 
+        frog.addEventListener("transitionend", function() {
+            frog.classList.remove("hlFrog");
+        }) 
+    }
 
 
     // Hide welcome container
@@ -76,45 +76,46 @@ function runGame(audioList){
 
 
 
-    // generate random numbers and add to frog play sequence array    
-    for (i=0; i < frogNum; i++) {
-       let num1 = Math.floor(Math.random() * frogNum) ;
-       frogSeq.push(num1);
+
+    frogSeq = genSequence(frogNum); 
+    console.log(frogSeq);
+
+    
+    let j = 0;
+    while (j < frogSeq.length) {
+        if (clickedFrog === frogSeq[j]) {
+            console.log("Correct");
+            j++
+        } else {
+            console.log("Wrong");
+            j++
+        }
+   
     }
 
-    // play frogs in sequence 
-    let frogDiv = null;
-    let sound = null;
 
-    for (i = 0; i < frogSeq.length; i++) {
-        console.log(frogSeq[i]);
-        frogDiv = frogs[frogSeq[i]];
-        sound = audioList[frogSeq[i]];
-        hlFrog(frogDiv);
-        // playFrog(sound);
-        removeHlFrog(frogDiv);
 
-    }
 
-    // currentAudioSequence.forEach(s => playFrog(s));
+
+
+
+    // playFrogSeq(frogSeq, frogs, audioList);
+
+
+
 
     // Reinstate welcome container
-    setTimeout(function() { toggleWelcome(welcome); }, 5000);
+    setTimeout(function() { toggleWelcome(welcome); }, 5500 * frogSeq.length);
 
 
 }
 
 
 
-/** 
- * play frog sound
-*/
-function playFrog(sound) {
-    sound.currentTime = 0;
-    sound.play();
-    sleep(1000);
-}
 
+/**
+ * toggle welcome menu on/off 
+ */
 function toggleWelcome(welcome) {
     if (welcome.style.display === "none") {
         welcome.style.display = "flex";
@@ -123,15 +124,66 @@ function toggleWelcome(welcome) {
     }
 }
 
-function hlFrog(frogDiv) {
-    frogDiv.classList.add("hlFrog");
-    sleep(500);
+/** 
+ * generate array of random numbers that will be the order the frogs 
+ * will be played in.
+ */
+function genSequence(frogNum) {
+    let frogSeq=[]
+    for (i=0; i < frogNum; i++) {
+        let num1 = Math.floor(Math.random() * frogNum) ;
+        frogSeq.push(num1);
+     }
+     return frogSeq
 }
 
-function removeHlFrog(frogDiv) {
-    frogDiv.classList.remove("hlFrog");
-    sleep(500);
+
+/** 
+ * p
+ * play Frogs in sequence
+*/
+async function playFrogSeq(frogSeq, frogs, audioList) {
+        let frogDiv = null;
+        let sound = null;
+    for (i = 0; i < frogSeq.length; i++) {
+        frogDiv = frogs[frogSeq[i]];
+        sound = audioList[frogSeq[i]];
+        await hlFrog(frogDiv);
+        await playFrog(sound);
+        await removeHlFrog(frogDiv);
+    }
 }
+
+/**
+ * highlight a frog
+ */
+async function hlFrog(frogDiv) {
+    frogDiv.classList.add("hlFrog");
+    await timer(500);
+}
+
+/**
+ * remove highlight from a frog
+ */
+async function removeHlFrog(frogDiv) {
+    frogDiv.classList.remove("hlFrog");
+    await timer(500);
+}
+
+/** 
+ * play frog sound
+*/
+async function playFrog(sound) {
+    sound.currentTime = 0;
+    sound.play();
+    await timer(500)
+}
+
+/**
+ * set delay timer control speed of frog 
+ * sequence playback
+ */
+function timer(ms) { return new Promise(res => setTimeout(res, ms)); }
 
 function rules() {
 
@@ -157,9 +209,6 @@ function sleep(ms) {
     } while (currentDate - date < ms);
 }
 
-function timer() {
-
-}
 
 function incrementScore() {
 
