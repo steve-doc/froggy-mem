@@ -6,8 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    let buttons = document.getElementsByTagName("button");
-    console.log(buttons);
+
 
 
     // Event listeners for frogs that play audio in each div
@@ -25,19 +24,32 @@ document.addEventListener("DOMContentLoaded", function () {
     //     }) 
     // }
 
+    // Set array variable for frog audio sounds.
+    const audioList = [
+        new Howl({ src: ['../assets/audio/greytree-frog.mp3']}),
+        new Howl({ src: ['../assets/audio/medium-frog.mp3']}),
+        new Howl({ src: ['../assets/audio/small-frog.mp3']}),
+        new Howl({ src: ['../assets/audio/leopard-frog.mp3']}),
+        new Howl({ src: ['../assets/audio/tree-frog.mp3']}),
+        ];
 
 
+    // get main menu buttons
+    let buttons = document.getElementsByTagName("button");
 
+    // set up event listeners for main menu window
     for (let button of buttons) {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "play") {
                 console.log(this.innerText);
-                runGame();
+                runGame(audioList);
             } else  {
                 rules();
         }
     })
     }
+
+
 
 
 });
@@ -46,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /**
  * main game function
  */
-function runGame(){
+function runGame(audioList){
 
     let welcome = document.getElementById("welcome-container");
     let level = parseInt(document.getElementById("level-count").innerText);
@@ -56,17 +68,11 @@ function runGame(){
     let frogNum = 3
     let frogSeq = []
 
-    const audioList = [
-        new Howl({ src: ['../assets/audio/greytree-frog.mp3']}),
-        new Howl({ src: ['../assets/audio/medium-frog.mp3']}),
-        new Howl({ src: ['../assets/audio/small-frog.mp3']}),
-        new Howl({ src: ['../assets/audio/leopard-frog.mp3']}),
-        new Howl({ src: ['../assets/audio/tree-frog.mp3']}),
-      ];
+
 
 
     // Hide welcome container
-    welcome.style.display = "none"
+    toggleWelcome(welcome);
 
 
 
@@ -76,28 +82,25 @@ function runGame(){
        frogSeq.push(num1);
     }
 
-    let currentAudioSequence = []
-    for (i=0; i<frogSeq.length; i++) {
-        currentAudioSequence.push(audioList[frogSeq[i]]);
-    }
+    // play frogs in sequence 
+    let frogDiv = null;
+    let sound = null;
 
-    // play frogs in sequence
-    console.log(frogSeq)
     for (i = 0; i < frogSeq.length; i++) {
         console.log(frogSeq[i]);
-        frogs[frogSeq[i]].classList.add("hlFrog");
-        sleep(500);
-        playFrog(currentAudioSequence[i]);
-        frogs[frogSeq[i]].classList.remove("hlFrog");
+        frogDiv = frogs[frogSeq[i]];
+        sound = audioList[frogSeq[i]];
+        hlFrog(frogDiv);
+        // playFrog(sound);
+        removeHlFrog(frogDiv);
+
     }
 
     // currentAudioSequence.forEach(s => playFrog(s));
 
-
-
-
     // Reinstate welcome container
-    welcome.style.display = "flex";
+    setTimeout(function() { toggleWelcome(welcome); }, 5000);
+
 
 }
 
@@ -112,8 +115,22 @@ function playFrog(sound) {
     sleep(1000);
 }
 
-function hlFrog() {
-    frog = document.getElementsByClassName("frog");
+function toggleWelcome(welcome) {
+    if (welcome.style.display === "none") {
+        welcome.style.display = "flex";
+    } else {
+        welcome.style.display = "none";
+    }
+}
+
+function hlFrog(frogDiv) {
+    frogDiv.classList.add("hlFrog");
+    sleep(500);
+}
+
+function removeHlFrog(frogDiv) {
+    frogDiv.classList.remove("hlFrog");
+    sleep(500);
 }
 
 function rules() {
