@@ -55,20 +55,8 @@ function runGame(audioList){
     let frogNum = 3
     let frogSeq = []
 
-    // Event listeners for frogs that play audio in each div
-    for (let frog of frogs) {
-        frog.addEventListener("click", function(e) {
-            let audio = frog.getElementsByTagName("audio")[0];
-            audio.currentTime = 0;
-            audio.play();
-            frog.classList.add("hlFrog");
-            const clickedFrog = (e.target.parentElement);
-        }) 
+    
 
-        frog.addEventListener("transitionend", function() {
-            frog.classList.remove("hlFrog");
-        }) 
-    }
 
 
     // Hide welcome container
@@ -80,26 +68,22 @@ function runGame(audioList){
     frogSeq = genSequence(frogNum); 
     console.log(frogSeq);
 
-    
-    let j = 0;
-    while (j < frogSeq.length) {
-        if (clickedFrog === frogSeq[j]) {
-            console.log("Correct");
-            j++
-        } else {
-            console.log("Wrong");
-            j++
-        }
+    playFrogSeq(frogSeq, frogs, audioList);
+
    
-    }
 
+    let j = 0
+    j = listen(frogs, audioList, frogSeq, j);  
+   
+    // while (j < frogSeq.length || typeof j === "undefined") {
 
+    //     console.log("returned j = ",  j);
+    // }
 
+    
 
+   
 
-
-
-    // playFrogSeq(frogSeq, frogs, audioList);
 
 
 
@@ -112,6 +96,31 @@ function runGame(audioList){
 
 
 
+
+
+function listen(frogs, audioList, frogSeq, j) {
+    for (let frog of frogs) {
+        frog.addEventListener("click", function(e) {
+            let audio = frog.getElementsByTagName("audio")[0]; 
+            // let audio = audioList[frog];
+            audio.currentTime = 0;
+            audio.play();
+            frog.classList.add("hlFrog");
+            console.log("j = ",  j);
+            if (frogs[frogSeq[j]] === e.target.parentElement) {
+                console.log("correct");
+                j++;
+                return j;
+            } else {
+                console.log("wrong")
+            }
+        }) 
+
+        frog.addEventListener("transitionend", function() {
+            frog.classList.remove("hlFrog");
+        }) 
+    }
+}
 
 /**
  * toggle welcome menu on/off 
