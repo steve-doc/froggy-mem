@@ -2,23 +2,10 @@
 // Get the frog elements and add event listeners to them
 
 document.addEventListener("DOMContentLoaded", function () {
-    
-
-
-
-
-
-
-
 
     // Set array variable for frog audio sounds.
-    const audioList = [
-        new Howl({ src: ['../assets/audio/greytree-frog.mp3']}),
-        new Howl({ src: ['../assets/audio/medium-frog.mp3']}),
-        new Howl({ src: ['../assets/audio/small-frog.mp3']}),
-        new Howl({ src: ['../assets/audio/leopard-frog.mp3']}),
-        new Howl({ src: ['../assets/audio/tree-frog.mp3']}),
-        ];
+
+
 
 
     // get main menu buttons
@@ -29,15 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "play") {
                 console.log(this.innerText);
-                runGame(audioList);
+                runGame();
             } else  {
                 rules();
         }
     })
     }
-
-
-
 
 });
 
@@ -45,69 +29,48 @@ document.addEventListener("DOMContentLoaded", function () {
 /**
  * main game function
  */
-function runGame(audioList){
+function runGame(){
 
     const welcome = document.getElementById("welcome-container");
     let level = parseInt(document.getElementById("level-count").innerText);
     let score = parseInt(document.getElementById("score-count").innerText);
     let lives = document.getElementById("life-count").innerText.length;
-    const frogs = document.getElementsByClassName("frog");
     let frogNum = 3
-    let frogSeq = []
+    let frogseq = []
+    const frogDivs = document.getElementsByClassName("frog");
+    const audioList = [
+        new Howl({ src: ['../assets/audio/greytree-frog.mp3']}),
+        new Howl({ src: ['../assets/audio/medium-frog.mp3']}),
+        new Howl({ src: ['../assets/audio/small-frog.mp3']}),
+        new Howl({ src: ['../assets/audio/leopard-frog.mp3']}),
+        new Howl({ src: ['../assets/audio/tree-frog.mp3']}),
+        ];
 
     
-
-
-
     // Hide welcome container
     toggleWelcome(welcome);
 
+    frogSeq = genSequence(frogNum);   // e.g. [3, 2, 4]
 
+    playFrogSequence(frogSeq, frogDivs, audioList)
 
-
-    frogSeq = genSequence(frogNum); 
-    console.log(frogSeq);
-
-    playFrogSeq(frogSeq, frogs, audioList);
-
-   
-
-    let j = 0
-    j = listen(frogs, audioList, frogSeq, j);  
-   
-    // while (j < frogSeq.length || typeof j === "undefined") {
-
-    //     console.log("returned j = ",  j);
-    // }
-
-    
-
-   
-
-
-
-
+    // wait for the user to click on frogs and check their work
 
     // Reinstate welcome container
-    setTimeout(function() { toggleWelcome(welcome); }, 5500 * frogSeq.length);
-
+    setTimeout(function() { toggleWelcome(welcome); }, 1500 * frogSeq.length);
 
 }
 
-
-
-
-
-function listen(frogs, audioList, frogSeq, j) {
-    for (let frog of frogs) {
+function listen(frogDivs, audioList, frogSeq, j) {
+    for (let frog of frogDivs) {
         frog.addEventListener("click", function(e) {
-            let audio = frog.getElementsByTagName("audio")[0]; 
-            // let audio = audioList[frog];
+            // let audio = frog.getElementsByTagName("audio")[0]; 
+            let audio = audioList[frogSeq[frog]];
             audio.currentTime = 0;
             audio.play();
             frog.classList.add("hlFrog");
             console.log("j = ",  j);
-            if (frogs[frogSeq[j]] === e.target.parentElement) {
+            if (frogDivs[frogSeq[j]] === e.target.parentElement) {
                 console.log("correct");
                 j++;
                 return j;
@@ -121,6 +84,41 @@ function listen(frogs, audioList, frogSeq, j) {
         }) 
     }
 }
+
+function playFrogSequence(frogSeq, frogDivs, audioList){
+    let sequenceIndex = 0  // where we are in frogSequence
+
+    // https://developer.mozilla.org/en-US/docs/Web/API/setInterval
+    // setInterval calls the given function repeatedly every X milliseconds 
+    // (300 in this case). This will repeat forever until you call clearInterval.
+    // clearInterval needs the unique identifier number returned by setInterval
+    const intervalId = setInterval(playNextFrogSound, 1000, frogSeq, frogDivs, audioList);
+    
+    function playNextFrogSound(frogSeq, frogDivs, audioList){
+        // Unflash the previous flashed frog if this is not the first turn
+        // we're doing this before the clearInterval check below so that we
+        // catch the last flashed frog before exiting the game.
+        // if (sequenceIndex > 0 && sequenceIndex <= frogSeq.length) {
+        //     // get the previous frog and unflash it
+        //     unFlashFrog(frogDivs, frogSeq[sequenceIndex - 1]);
+        // }
+        if (sequenceIndex >= frogSeq.length) {
+            clearInterval(intervalId);
+            return;
+        }
+
+        let frogIndex = frogSeq[sequenceIndex];
+        flashFrog(frogDivs, frogIndex);
+        let frogSound = audioList[frogIndex];
+        frogSound.play();
+        unFlashFrog(frogDivs, frogIndex);
+        sequenceIndex += 1;
+    }
+}
+
+
+
+
 
 /**
  * toggle welcome menu on/off 
@@ -146,46 +144,21 @@ function genSequence(frogNum) {
      return frogSeq
 }
 
-
-/** 
- * p
- * play Frogs in sequence
-*/
-async function playFrogSeq(frogSeq, frogs, audioList) {
-        let frogDiv = null;
-        let sound = null;
-    for (i = 0; i < frogSeq.length; i++) {
-        frogDiv = frogs[frogSeq[i]];
-        sound = audioList[frogSeq[i]];
-        await hlFrog(frogDiv);
-        await playFrog(sound);
-        await removeHlFrog(frogDiv);
-    }
-}
-
 /**
  * highlight a frog
  */
-async function hlFrog(frogDiv) {
-    frogDiv.classList.add("hlFrog");
-    await timer(500);
+function flashFrog(frogDivs, frogIndex) {
+    frogDivs[frogIndex].classList.add("hlFrog");
+
 }
 
 /**
  * remove highlight from a frog
  */
-async function removeHlFrog(frogDiv) {
-    frogDiv.classList.remove("hlFrog");
-    await timer(500);
-}
-
-/** 
- * play frog sound
-*/
-async function playFrog(sound) {
-    sound.currentTime = 0;
-    sound.play();
-    await timer(500)
+function unFlashFrog(frogDivs, frogIndex) {
+    frogDivs[frogIndex].addEventListener("transitionend", function() {
+    frogDivs[frogIndex].classList.remove("hlFrog");
+    })
 }
 
 /**
@@ -206,18 +179,6 @@ function introBox() {
 function setLevel() {
 
 }
-
-/** 
- * create delay after playing audio to stopp sequence playing asynchonously 
- */
-function sleep(ms) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-        currentDate = Date.now();
-    } while (currentDate - date < ms);
-}
-
 
 function incrementScore() {
 
