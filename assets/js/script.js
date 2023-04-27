@@ -56,19 +56,25 @@ function runGame(){
 
     // wait for the user to click on frogs and check their work
 
+    listen(frogDivs, audioList, frogSeq);
+
     // Reinstate welcome container
-    setTimeout(function() { toggleWelcome(welcome); }, 1500 * frogSeq.length);
+    setTimeout(function() { toggleWelcome(welcome); }, 4500 * frogSeq.length);
 
 }
 
-function listen(frogDivs, audioList, frogSeq, j) {
+function listen(frogDivs, audioList, frogSeq) {
+    let j = 0;
     for (let frog of frogDivs) {
         frog.addEventListener("click", function(e) {
-            // let audio = frog.getElementsByTagName("audio")[0]; 
-            let audio = audioList[frogSeq[frog]];
+            let audio = frog.getElementsByTagName("audio")[0]; 
+            // let audio = audioList[frogSeq[frog]];
+            console.log(audio);
             audio.currentTime = 0;
             audio.play();
             frog.classList.add("hlFrog");
+
+            console.log(frogSeq)
             console.log("j = ",  j);
             if (frogDivs[frogSeq[j]] === e.target.parentElement) {
                 console.log("correct");
