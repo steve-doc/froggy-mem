@@ -33,8 +33,7 @@ function runGame(){
 
     const welcome = document.getElementById("welcome-container");
     let level = parseInt(document.getElementById("level-count").innerText);
-    let score = parseInt(document.getElementById("score-count").innerText);
-    score.innerText = 000
+    const score = document.getElementById("score-count");
     let lives = document.getElementById("life-count").innerText.length;
     let frogNum = 3
     const frogDivs = document.getElementsByClassName("frog");
@@ -81,6 +80,7 @@ function runGame(){
             console.log("j = ",  j);
             if (frogDivs[frogSeq[j]] === e.target.parentElement) {
                 console.log("correct");
+                score.innerHTML = parseInt(score.innerText) + 1;
                 j++;
                 if (j >= frogSeq.length) {
                     frogSeq = genSequence(frogSeq);
