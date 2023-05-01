@@ -1,42 +1,19 @@
 // Wait for the DOM to finish loading before running the game
 // Get the frog elements and add event listeners to them
 
+    // Initialise game
+    
+    const score = document.getElementById("score-count");
+    score.innerHTML = 0;
+    const welcome = document.getElementById("welcome-container");
+
+
+
+    // Create an array of frog container divs
+    const frogDivs = document.getElementsByClassName("frog");
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Set array variable for frog audio sounds.
-
-
-
-
-    // get main menu buttons
-    let buttons = document.getElementsByTagName("button");
-
-    // set up event listeners for main menu window
-    for (let button of buttons) {
-        button.addEventListener("click", function() {
-            if (this.getAttribute("data-type") === "play") {
-                console.log(this.innerText);
-                runGame();
-            } else  {
-                rules();
-        }
-    })
-    }
-
-});
-
-
-/**
- * main game function
- */
-function runGame(){
-
-    const welcome = document.getElementById("welcome-container");
-    let level = parseInt(document.getElementById("level-count").innerText);
-    const score = document.getElementById("score-count");
-    let lives = document.getElementById("life-count").innerText.length;
-    let frogNum = 3
-    const frogDivs = document.getElementsByClassName("frog");
     // create an array of the audio files associated with each frog
     const audioList = [
         new Howl({ src: ['../assets/audio/greytree-frog.mp3']}),
@@ -45,102 +22,112 @@ function runGame(){
         new Howl({ src: ['../assets/audio/leopard-frog.mp3']}),
         new Howl({ src: ['../assets/audio/tree-frog.mp3']}),
         ];
-        
-        
-        
 
+  
+    // get main menu buttons
+    let buttons = document.getElementsByTagName("button");
 
-    
-    // Hide welcome container
-    toggleWelcome(welcome);
+    // set up event listeners for main menu window
+    for (let button of buttons) {
+        button.addEventListener("click", function() {
+            if (this.getAttribute("data-type") === "play") {
+                console.log(this.innerText);
+ 
+                runGame(audioList);
+            } else  {
+                rules();
+        }
+    })
+    }
 
-    frogSeq = initGame(frogNum);
-    console.log(frogSeq);
-
-    // play the frogs in the sequence generated above
-    playFrogSequence(frogSeq, frogDivs, audioList)
-
-
-
-    // wait for the user to click on frogs and check their work
 
     // set up event listeners for each frog
-    let j = 0;
-    let seqLength = frogSeq.length;
+    let j = 0
     for (let frog of frogDivs) {
         frog.addEventListener("click", function(e) {
             let audio = frog.getElementsByTagName("audio")[0]; 
             // let audio = audioList[frogSeq[frog]];
-            console.log(audio);
             audio.currentTime = 0;
             audio.play();
             frog.classList.add("hlFrog");
-
-
-            console.log("j = ",  j);
-            if (frogDivs[frogSeq[j]] === e.target.parentElement) {
-                console.log("correct");
-                score.innerHTML = parseInt(score.innerText) + 1;
-                j++;
-                if (j >= frogSeq.length) {
-                    frogSeq = genSequence(frogSeq);
-                    playFrogSequence(frogSeq, frogDivs, audioList);
-                    j = 0;
-                }
-            } else {
-                console.log("wrong")
-                toggleWelcome(welcome)
+                if (frogDivs[frogSeq[j]] === e.target.parentElement) {
+            console.log("correct");
+            score.innerHTML = parseInt(score.innerText) + 1;
+            j++;
+            if (j >= frogSeq.length) {
+                frogSeq = genSequence(frogSeq);
+                setTimeout(playFrogSequence, 1000, frogSeq, frogDivs, audioList)
+                // playFrogSequence(frogSeq, frogDivs, audioList);
+                j = 0;
             }
+        } else {
+            console.log("wrong");
+            frog.classList.remove("hlFrog");
+            toggleWelcome(welcome);
+        }
         }) 
 
         frog.addEventListener("transitionend", function() {
             frog.classList.remove("hlFrog");
         }) 
     }
+});
+
+/**
+ * main game function
+ */
+function runGame(audioList){
+    score.innerHTML = 0;
+
+
+
+
+
+
+    // Hide welcome container
+    toggleWelcome(welcome);
+    
+    frogSeq = initGame();
+
+    // play the frogs in the sequence generated above
+    playFrogSequence(frogSeq, frogDivs, audioList)
+
+}
+ 
+
+
+
+    // if (frogDivs[frogSeq[j]] === e.target.parentElement) {
+    //     console.log("correct");
+    //     score.innerHTML = parseInt(score.innerText) + 1;
+    //     j++;
+    //     if (j >= frogSeq.length) {
+    //         frogSeq = genSequence(frogSeq);
+    //         playFrogSequence(frogSeq, frogDivs, audioList);
+    //         j = 0;
+    //     }
+    // } else {
+    //     console.log("wrong");
+    //     frog.classList.remove("hlFrog");
+    //     toggleWelcome(welcome);
+    // }
 
     // listen(frogDivs, audioList, frogSeq);
 
     // Reinstate welcome container
     // setTimeout(function() { toggleWelcome(welcome); }, 10000);
 
-}
+// }
 
-function initGame(frogNum) {
+function initGame() {
     let frogSeq = []
-    for (i = 0; i < frogNum; i++) {
+    for (i = 0; i < 3; i++) {
         frogSeq = genSequence(frogSeq);
     }
     return frogSeq
 }
 
-// function listen(frogDivs, audioList, frogSeq) {
-//     let j = 0;
-//     let seqLength = frogSeq.length;
-//     for (let frog of frogDivs) {
-//         frog.addEventListener("click", function(e) {
-//             let audio = frog.getElementsByTagName("audio")[0]; 
-//             // let audio = audioList[frogSeq[frog]];
-//             console.log(audio);
-//             audio.currentTime = 0;
-//             audio.play();
-//             frog.classList.add("hlFrog");
-//             console.log("j = ",  j);
-//             if (frogDivs[frogSeq[j]] === e.target.parentElement) {
-//                 console.log("correct");
-//                 j++;
-//                 if (j >= seqLength) {
-//                     return j;
-//                 }
-//             } else {
-//                 console.log("wrong")
-//             }
-//         }) 
 
-//         frog.addEventListener("transitionend", function() {
-//             frog.classList.remove("hlFrog");
-//         }) 
-//     }
-// }
 
 function playFrogSequence(frogSeq, frogDivs, audioList){
     let sequenceIndex = 0  // where we are in frogSequence
