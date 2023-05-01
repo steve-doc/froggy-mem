@@ -5,7 +5,7 @@
     
     const score = document.getElementById("score-count");
     score.innerHTML = 0;
-    const welcome = document.getElementById("welcome-container");
+    const menu = document.getElementById("menu-container");
 
 
 
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             console.log("wrong");
             frog.classList.remove("hlFrog");
-            toggleWelcome(welcome);
+            toggleWelcome(menu);
         }
         }) 
 
@@ -84,8 +84,8 @@ function runGame(audioList){
 
 
 
-    // Hide welcome container
-    toggleWelcome(welcome);
+    // Hide menu container
+    toggleWelcome(menu);
     
     frogSeq = initGame();
 
@@ -109,13 +109,13 @@ function runGame(audioList){
     // } else {
     //     console.log("wrong");
     //     frog.classList.remove("hlFrog");
-    //     toggleWelcome(welcome);
+    //     toggleWelcome(menu);
     // }
 
     // listen(frogDivs, audioList, frogSeq);
 
-    // Reinstate welcome container
-    // setTimeout(function() { toggleWelcome(welcome); }, 10000);
+    // Reinstate menu container
+    // setTimeout(function() { toggleWelcome(menu); }, 10000);
 
 // }
 
@@ -165,13 +165,13 @@ function playFrogSequence(frogSeq, frogDivs, audioList){
 
 
 /**
- * toggle welcome menu on/off 
+ * toggle menu menu on/off 
  */
-function toggleWelcome(welcome) {
-    if (welcome.style.display === "none") {
-        welcome.style.display = "flex";
+function toggleWelcome(menu) {
+    if (menu.style.display === "none") {
+        menu.style.display = "flex";
     } else {
-        welcome.style.display = "none";
+        menu.style.display = "none";
     }
 }
 

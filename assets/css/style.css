@@ -20,20 +20,32 @@ img {
 
 /* Header and scoring */
 header {
+    display: flex;
+    flex-direction: column;
     width: 75%;
-    text-align: center;
     margin: 0 auto;
     background-color: #6daa30;
     text-align: center;
 }
 
-.score-box {
+.score {
     display: flex;
     justify-content: center;
-    padding: 0 5%;
+    line-height: 1em;
 }
 
-
+#welcome {
+    display: none;
+    background-color: #ffc600;
+    align-items: center;
+    text-align: center;
+    border: 5px inset blue;
+    width: 40%;
+    position: absolute;
+    bottom: 37%;
+    left: 33%;
+    padding: 1em 0;
+}
 
 .container {
     width: 75%;
@@ -41,7 +53,7 @@ header {
     position: relative;
 }
 
-#welcome-container {
+#menu-container {
     display: flex;
     flex-direction: column;
     align-items: center;

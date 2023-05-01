@@ -13,19 +13,12 @@
 
         <div class="title"><h1>Way of the Frog!</h1></div>
 
-        <div class="score-box">
+        <div class="score">
+            <h2>Score <span id="score-count">0</span><h2>
+        </div>
 
-            <div class="score">
-                <h2>Score <span id="score-count">0</span><h2>
-            </div>
 
-            <!-- <div class="level">
-                <h3>Level <span id="level-count">1</span><h3>
-            </div>
 
-            <div class="lives">
-                <h3>Lives <span id="life-count">XXX</span><h3>
-            </div> -->
         </div>
     </header>
 
@@ -54,8 +47,20 @@
             <audio src="assets/audio/tree-frog.mp3"></audio>     
         </div>
 
-        <!-- Welcome box -->
-        <div id="welcome-container">
+        
+        <!-- Welcome message and player name entry -->
+        <div id="welcome"><h2>Welcome to</h2>
+            <h1>Way of the Frog!</h1>
+            <h3>You role will be Follower of the Frog.  Enter your name follower</h3>
+            <span><input type="text" id="name" value="Player Name"></span>  
+            <span><input type="submit" id="submit-name"></span> 
+            
+            </div>
+
+
+
+        <!-- menu box -->
+        <div id="menu-container">
 
             <h2>Welcome to the Game!</h2>
 

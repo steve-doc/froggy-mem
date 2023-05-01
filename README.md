@@ -17,3 +17,4 @@ bugs
 
 1. Intermittent on click audio bug not playing audio
 2. When playing audio sequence if there are repeats of the same audio it will only play the audio once.
+3. Score incrementing by multiples after first game.  Event listeners getting added again.
