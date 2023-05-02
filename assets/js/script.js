@@ -224,15 +224,15 @@ function gameOver() {
     if (currentScore > bestScore) {
         let scoreImprove = currentScore - bestScore;
         bestScore = currentScore;
-        message = `<h3>Congratulations, you beat your previous High Score by ${scoreImprove}. <br>The new High Score is ${bestScore}. <br>This is The Way!</h3>`;
+        message = `<h2>Game Over!</h2><br><h3>Congratulations, you beat your previous High Score by ${scoreImprove}. <br>The new High Score is ${bestScore}. <br>This is The Way!</h3>`;
         setGameOverMessage(message);
         highScore.innerHTML = bestScore;
     } else if (currentScore === bestScore){
-        message = `<h3>Pretty good, you equalled your High Score of ${bestScore}. <br>Let's try a little harder next time.<br>This is The Way!</h3>`;
+        message = `<h2>Game Over!</h2><br><h3>Pretty good, you equalled your High Score of ${bestScore}. <br>Let's try a little harder next time.<br>This is The Way!</h3>`;
         setGameOverMessage(message);
     } else {
         let scoreMiss = bestScore - currentScore
-        message = `<h3>Well that's a little dissapointing, <br>you missed your high score by ${scoreMiss}. <br>Time for Maximum Effort!<br>This is The Way!</h3>`;
+        message = `<h2>Game Over!</h2><br><h3>Well that's a little dissapointing, <br>you missed your high score by ${scoreMiss}. <br>Time for Maximum Effort!<br>This is The Way!</h3>`;
         setGameOverMessage(message);
     }
 
