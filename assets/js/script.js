@@ -22,11 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // create an array of the audio files associated with each frog
     const audioList = [
-        new Howl({ src: ['../assets/audio/greytree-frog.mp3']}),
-        new Howl({ src: ['../assets/audio/medium-frog.mp3']}),
-        new Howl({ src: ['../assets/audio/small-frog.mp3']}),
-        new Howl({ src: ['../assets/audio/leopard-frog.mp3']}),
-        new Howl({ src: ['../assets/audio/tree-frog.mp3']}),
+        new Howl({ src: ['assets/audio/greytree-frog.mp3']}),
+        new Howl({ src: ['assets/audio/medium-frog.mp3']}),
+        new Howl({ src: ['assets/audio/small-frog.mp3']}),
+        new Howl({ src: ['assets/audio/leopard-frog.mp3']}),
+        new Howl({ src: ['assets/audio/tree-frog.mp3']}),
         ];
 
   
