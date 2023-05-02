@@ -7,6 +7,12 @@
     score.innerHTML = 0;
     const menu = document.getElementById("menu-container");
 
+    const follow = document.getElementById("follow");
+    const listen = document.getElementById("listen");
+    listen.style.display = "none";
+    follow.style.display = "none";
+
+
 
 
     // Create an array of frog container divs
@@ -57,12 +63,16 @@ document.addEventListener("DOMContentLoaded", function () {
             if (j >= frogSeq.length) {
                 frogSeq = genSequence(frogSeq);
                 setTimeout(playFrogSequence, 1000, frogSeq, frogDivs, audioList)
+    
                 // playFrogSequence(frogSeq, frogDivs, audioList);
                 j = 0;
             }
         } else {
             console.log("wrong");
             frog.classList.remove("hlFrog");
+            j = 0
+            listen.style.display = "none";
+            follow.style.display = "none";
             toggleWelcome(menu);
         }
         }) 
@@ -97,28 +107,6 @@ function runGame(audioList){
 
 
 
-    // if (frogDivs[frogSeq[j]] === e.target.parentElement) {
-    //     console.log("correct");
-    //     score.innerHTML = parseInt(score.innerText) + 1;
-    //     j++;
-    //     if (j >= frogSeq.length) {
-    //         frogSeq = genSequence(frogSeq);
-    //         playFrogSequence(frogSeq, frogDivs, audioList);
-    //         j = 0;
-    //     }
-    // } else {
-    //     console.log("wrong");
-    //     frog.classList.remove("hlFrog");
-    //     toggleWelcome(menu);
-    // }
-
-    // listen(frogDivs, audioList, frogSeq);
-
-    // Reinstate menu container
-    // setTimeout(function() { toggleWelcome(menu); }, 10000);
-
-// }
-
 function initGame() {
     let frogSeq = []
     for (i = 0; i < 3; i++) {
@@ -131,13 +119,16 @@ function initGame() {
 
 function playFrogSequence(frogSeq, frogDivs, audioList){
     let sequenceIndex = 0  // where we are in frogSequence
+    follow.style.display = "none";
+    listen.style.display = "block";
 
     // https://developer.mozilla.org/en-US/docs/Web/API/setInterval
     // setInterval calls the given function repeatedly every X milliseconds 
     // (300 in this case). This will repeat forever until you call clearInterval.
     // clearInterval needs the unique identifier number returned by setInterval
     const intervalId = setInterval(playNextFrogSound, 1000, frogSeq, frogDivs, audioList);
-    
+
+
     function playNextFrogSound(frogSeq, frogDivs, audioList){
         // Unflash the previous flashed frog if this is not the first turn
         // we're doing this before the clearInterval check below so that we
@@ -148,6 +139,8 @@ function playFrogSequence(frogSeq, frogDivs, audioList){
         // }
         if (sequenceIndex >= frogSeq.length) {
             clearInterval(intervalId);
+            listen.style.display = "none";
+            follow.style.display = "block";
             return;
         }
 
@@ -157,7 +150,9 @@ function playFrogSequence(frogSeq, frogDivs, audioList){
         frogSound.play();
         unFlashFrog(frogDivs, frogIndex);
         sequenceIndex += 1;
+
     }
+    
 }
 
 
@@ -172,6 +167,15 @@ function toggleWelcome(menu) {
         menu.style.display = "flex";
     } else {
         menu.style.display = "none";
+    }
+}
+
+function toggleBanner(banner) {
+    console.log(banner);
+    if (banner.style.display === "") {
+        banner.style.display = "block";
+    } else {
+        banner.style.display = "none";
     }
 }
 

@@ -8,10 +8,14 @@ body {
     box-sizing: border-box;
 }
 
-h1 {
+h1, h2 {
     font-family: 'Shojumaru', cursive;
     font-size: 3em;
     margin: 0;
+}
+
+h2 {
+    font-size: 2rem;
 }
 
 img {
@@ -26,6 +30,8 @@ header {
     margin: 0 auto;
     background-color: #6daa30;
     text-align: center;
+    padding: 5px 0 20px 0;
+    text-shadow: 3px 3px 5px black;
 }
 
 .score {
@@ -58,24 +64,33 @@ header {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    border: 5px inset blue;
+    border: 2px inset blue;
     background-color: aqua;
+    color: slategray;
     width: 25%;
     position: absolute;
-    bottom: 40%;
-    left: 40%;
-    padding: 1em 0;
+    bottom: 38%;
+    left: 36%;
+    padding: 2em;
+    box-shadow: 4px 4px 4px grey;
+    border-radius: 15px;
+    text-shadow: 3px 3px 5px black;
 }
 
 .btn {
     width: 60%;
     justify-content: center;
     margin: 5%;
-    background-color: green;
-    border: 1px solid black;
-    box-shadow: 3px solid grey;
+    color: silver;
+    background-color: blue;
+    border: 1px solid lightseagreen;
+    box-shadow: 3px 3px 2px grey;
     border-radius: 30px;
 
+}
+
+.btn:hover {
+    background-color: greenyellow;
 }
 
 .frog {
@@ -136,3 +151,30 @@ header {
     left: 84%;
 }
 
+#listen {
+    display: none;
+    background-color: red;
+    color: whitesmoke;
+    position: absolute;
+    bottom: 85%;
+    left: 29%;
+    width: 40%;
+    text-align: center;
+    box-shadow: 6px 6px 10px black;
+    border-radius: 15px;
+    text-shadow: 3px 3px 5px black;
+}
+
+#follow {
+    display: none;
+    background-color: greenyellow;
+    color: whitesmoke;
+    position: absolute;
+    bottom: 85%;
+    left: 29%;
+    width: 40%;
+    text-align: center;
+    box-shadow: 6px 6px 10px black;
+    border-radius: 15px;
+    text-shadow: 3px 3px 5px black;
+}
