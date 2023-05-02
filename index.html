@@ -19,6 +19,7 @@
 
     <div class="container">
 
+        <!-- scores are updated by JS -->
         <div id="score-container">
             <div class="scores">
                 <h2>High Score <span class="counters"id="high-score-count">0</span><h2>
@@ -28,8 +29,12 @@
             </div>  
         </div>
 
-
+        <!-- Background image for game play -->
         <img id="back-img" src=" assets/images/pond-background.jpg" alt="Cartoon pond background">
+
+        <!-- a series of divs containing different colored frog images
+        that are activated either when game sequences is played or by
+        the player interacting with images -->
         <div id="frog0" class="frog"><img src="assets/images/green_froggy.png" alt="Green frog">
             <audio src="assets/audio/greytree-frog.mp3"></audio>
         </div>
@@ -50,22 +55,19 @@
             <audio src="assets/audio/tree-frog.mp3"></audio>     
         </div>
 
-        
-        <!-- Welcome message and player name entry -->
-        <div id="welcome"><h2>Welcome to</h2>
-            <h2>Way of the Frog!</h2>
-            <h3>You role will be Follower of the Frog.  Enter your name follower</h3>
-            <span><input type="text" id="name" value="Player Name"></span>  
-            <span><input type="submit" id="submit-name"></span> 
-            
-            </div>
-
+        <!-- Message hidden until JS unhides while frog sequence is played  -->
         <div id="listen"><h2>Listen to the way of the frog</h2> </div>
 
+        <!-- Message hidden until JS unhides while player enters response  -->
         <div id="follow"><h2>Follow the way of the frog</h2> </div>
 
+        <!-- 100% width empty invisible div that covers frog divs
+        when frog sequence is playing to prevent player activating 
+        frog eventlisteners  -->
         <div id="cover"></div>
 
+        <!-- Hidden div that is displayed after game is over. JS populates different 
+        messages depending on the player's score -->
         <div id="game-over"></div>
 
         <!-- menu box -->
