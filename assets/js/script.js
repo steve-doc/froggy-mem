@@ -226,6 +226,7 @@ function gameOver() {
         bestScore = currentScore;
         message = `<h3>Congratulations, you beat your previous High Score by ${scoreImprove}. <br>The new High Score is ${bestScore}. <br>This is The Way!</h3>`;
         setGameOverMessage(message);
+        highScore.innerHTML = bestScore;
     } else if (currentScore === bestScore){
         message = `<h3>Pretty good, you equalled your High Score of ${bestScore}. <br>Let's try a little harder next time.<br>This is The Way!</h3>`;
         setGameOverMessage(message);
@@ -235,11 +236,11 @@ function gameOver() {
         setGameOverMessage(message);
     }
 
-    setTimeout(toggleWelcome, 5000, menu);
+    setTimeout(toggleWelcome, 6000, menu);
 }
 
 function setGameOverMessage(message) {
     toggleBanner(gameOverMessage);
     gameOverMessage.innerHTML = message;
-    setTimeout(toggleBanner, 4500, gameOverMessage);
+    setTimeout(toggleBanner, 5800, gameOverMessage);
 }
