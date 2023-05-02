@@ -69,6 +69,7 @@ header {
     color: slategray;
     width: 25%;
     position: absolute;
+    z-index: 3;
     bottom: 38%;
     left: 36%;
     padding: 2em;
@@ -97,6 +98,8 @@ header {
     padding: 10px;
     transition: all 300ms;    
     border-radius: 50%;
+    position: absolute;
+    z-index: 1;
 }
 
 .hlFrog {
@@ -114,7 +117,7 @@ header {
 #frog0 {
     width: 6vw;
     height: 6vw;
-    position: absolute;
+    /* position: absolute; */
     bottom: 4%;
     left: 15.5%;
 }
@@ -122,7 +125,7 @@ header {
 #frog1 {
     width: 7vw;
     height: 7vw;
-    position: absolute;
+    /* position: absolute; */
     bottom: 23%;
     left: 37.5%;
 }
@@ -130,7 +133,7 @@ header {
 #frog2 {
     width: 7vw;
     height: 7vw;
-    position: absolute;
+    /* position: absolute; */
     bottom: 47%;
     left: 52%;
 }
@@ -138,7 +141,7 @@ header {
 #frog3 {
     width: 6vw;
     height: 6vw;
-    position: absolute;
+    /* position: absolute; */
     bottom: 52%;
     left: 82.5%;
 }
@@ -146,7 +149,7 @@ header {
 #frog4 {
     width: 6vw;
     height: 6vw;
-    position: absolute;
+    /* position: absolute; */
     bottom: 32.5%;
     left: 84%;
 }
@@ -177,4 +180,15 @@ header {
     box-shadow: 6px 6px 10px black;
     border-radius: 15px;
     text-shadow: 3px 3px 5px black;
+}
+
+#cover {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    background-color: rgb(233, 233, 127, .2);
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
 }

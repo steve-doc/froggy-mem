@@ -5,12 +5,16 @@
     
     const score = document.getElementById("score-count");
     score.innerHTML = 0;
+    let currentScore = 0;
+    let bestScore = 0;
     const menu = document.getElementById("menu-container");
-
     const follow = document.getElementById("follow");
     const listen = document.getElementById("listen");
+    const cover = document.getElementById("cover");
     listen.style.display = "none";
     follow.style.display = "none";
+    cover.style.display = "block";
+    console.log(cover);
 
 
 
@@ -58,22 +62,17 @@ document.addEventListener("DOMContentLoaded", function () {
             frog.classList.add("hlFrog");
                 if (frogDivs[frogSeq[j]] === e.target.parentElement) {
             console.log("correct");
-            score.innerHTML = parseInt(score.innerText) + 1;
+            incrementScore();
             j++;
             if (j >= frogSeq.length) {
                 frogSeq = genSequence(frogSeq);
                 setTimeout(playFrogSequence, 1000, frogSeq, frogDivs, audioList)
-    
-                // playFrogSequence(frogSeq, frogDivs, audioList);
                 j = 0;
             }
         } else {
-            console.log("wrong");
             frog.classList.remove("hlFrog");
             j = 0
-            listen.style.display = "none";
-            follow.style.display = "none";
-            toggleWelcome(menu);
+            gameOver();
         }
         }) 
 
@@ -87,16 +86,11 @@ document.addEventListener("DOMContentLoaded", function () {
  * main game function
  */
 function runGame(audioList){
-    score.innerHTML = 0;
-
-
-
-
-
 
     // Hide menu container
     toggleWelcome(menu);
     
+    // initialise new game
     frogSeq = initGame();
 
     // play the frogs in the sequence generated above
@@ -108,6 +102,8 @@ function runGame(audioList){
 
 
 function initGame() {
+    score.innerHTML = 0;
+    currentScore = 0;
     let frogSeq = []
     for (i = 0; i < 3; i++) {
         frogSeq = genSequence(frogSeq);
@@ -115,12 +111,11 @@ function initGame() {
     return frogSeq
 }
 
-
-
 function playFrogSequence(frogSeq, frogDivs, audioList){
     let sequenceIndex = 0  // where we are in frogSequence
     follow.style.display = "none";
     listen.style.display = "block";
+    cover.style.display = "block";
 
     // https://developer.mozilla.org/en-US/docs/Web/API/setInterval
     // setInterval calls the given function repeatedly every X milliseconds 
@@ -141,6 +136,7 @@ function playFrogSequence(frogSeq, frogDivs, audioList){
             clearInterval(intervalId);
             listen.style.display = "none";
             follow.style.display = "block";
+            cover.style.display = "none";
             return;
         }
 
@@ -154,10 +150,6 @@ function playFrogSequence(frogSeq, frogDivs, audioList){
     }
     
 }
-
-
-
-
 
 /**
  * toggle menu menu on/off 
@@ -217,22 +209,15 @@ function rules() {
 }
 
 
-function introBox() {
-    
-}
-
-function setLevel() {
-
-}
-
 function incrementScore() {
-
+    currentScore++;
+    score.innerHTML = currentScore;
 }
 
-function decrementLives() {
-
-}
 
 function gameOver() {
-
+    listen.style.display = "none";
+    follow.style.display = "none";
+    cover.style.display = "block";
+    setTimeout(toggleWelcome, 3000, menu);
 }
