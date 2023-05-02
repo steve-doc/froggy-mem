@@ -4,6 +4,7 @@
     // Initialise game
     
     const score = document.getElementById("score-count");
+    const highScore = document.getElementById("high-score-count");
     score.innerHTML = 0;
     let currentScore = 0;
     let bestScore = 0;
@@ -11,6 +12,8 @@
     const follow = document.getElementById("follow");
     const listen = document.getElementById("listen");
     const cover = document.getElementById("cover");
+    const gameOverMessage = document.getElementById("game-over"); 
+    gameOverMessage.style.display = "none";
     listen.style.display = "none";
     follow.style.display = "none";
     cover.style.display = "block";
@@ -75,8 +78,8 @@ document.addEventListener("DOMContentLoaded", function () {
             gameOver();
         }
         }) 
-
-        frog.addEventListener("transitionend", function() {
+// transitionend
+        frog.addEventListener("ended", function() {
             frog.classList.remove("hlFrog");
         }) 
     }
@@ -98,9 +101,6 @@ function runGame(audioList){
 
 }
  
-
-
-
 function initGame() {
     score.innerHTML = 0;
     currentScore = 0;
@@ -164,7 +164,7 @@ function toggleWelcome(menu) {
 
 function toggleBanner(banner) {
     console.log(banner);
-    if (banner.style.display === "") {
+    if (banner.style.display === "none") {
         banner.style.display = "block";
     } else {
         banner.style.display = "none";
@@ -219,5 +219,27 @@ function gameOver() {
     listen.style.display = "none";
     follow.style.display = "none";
     cover.style.display = "block";
-    setTimeout(toggleWelcome, 3000, menu);
+    gameOverMessage.innerHTML = "";
+    let message = null
+    if (currentScore > bestScore) {
+        let scoreImprove = currentScore - bestScore;
+        bestScore = currentScore;
+        message = `<h3>Congratulations, you beat your previous High Score by ${scoreImprove}. <br>The new High Score is ${bestScore}. <br>This is The Way!</h3>`;
+        setGameOverMessage(message);
+    } else if (currentScore === bestScore){
+        message = `<h3>Pretty good, you equalled your High Score of ${bestScore}. <br>Let's try a little harder next time.<br>This is The Way!</h3>`;
+        setGameOverMessage(message);
+    } else {
+        let scoreMiss = bestScore - currentScore
+        message = `<h3>Well that's a little dissapointing, <br>you missed your high score by ${scoreMiss}. <br>Time for Maximum Effort!<br>This is The Way!</h3>`;
+        setGameOverMessage(message);
+    }
+
+    setTimeout(toggleWelcome, 5000, menu);
+}
+
+function setGameOverMessage(message) {
+    toggleBanner(gameOverMessage);
+    gameOverMessage.innerHTML = message;
+    setTimeout(toggleBanner, 4500, gameOverMessage);
 }

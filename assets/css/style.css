@@ -33,10 +33,12 @@ header {
     padding: 5px 0 20px 0;
     text-shadow: 3px 3px 5px black;
 }
-
-.score {
+.scores {
+    padding: 0 10px;
+}
+#score-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     line-height: 1em;
 }
 
@@ -108,16 +110,10 @@ header {
     box-shadow: 0 0 10px #ffc600;
 }
 
-/* .frog:hover {
-    background-color:rgb(255, 255, 240, 0.5);
-    box-shadow: 0 0 10px #ffc600;
-    transform: scale(1.1);
-} */
 
 #frog0 {
     width: 6vw;
     height: 6vw;
-    /* position: absolute; */
     bottom: 4%;
     left: 15.5%;
 }
@@ -125,7 +121,6 @@ header {
 #frog1 {
     width: 7vw;
     height: 7vw;
-    /* position: absolute; */
     bottom: 23%;
     left: 37.5%;
 }
@@ -133,7 +128,6 @@ header {
 #frog2 {
     width: 7vw;
     height: 7vw;
-    /* position: absolute; */
     bottom: 47%;
     left: 52%;
 }
@@ -141,7 +135,6 @@ header {
 #frog3 {
     width: 6vw;
     height: 6vw;
-    /* position: absolute; */
     bottom: 52%;
     left: 82.5%;
 }
@@ -149,7 +142,6 @@ header {
 #frog4 {
     width: 6vw;
     height: 6vw;
-    /* position: absolute; */
     bottom: 32.5%;
     left: 84%;
 }
@@ -174,6 +166,21 @@ header {
     color: whitesmoke;
     position: absolute;
     bottom: 85%;
+    left: 29%;
+    width: 40%;
+    text-align: center;
+    box-shadow: 6px 6px 10px black;
+    border-radius: 15px;
+    text-shadow: 3px 3px 5px black;
+}
+
+#game-over {
+    display: none;
+    background-color: green;
+    color: whitesmoke;
+    position: absolute;
+    z-index: 2;
+    bottom: 50%;
     left: 29%;
     width: 40%;
     text-align: center;
