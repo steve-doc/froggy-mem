@@ -44,8 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let button of buttons) {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "play") {
-                console.log(this.innerText);
- 
                 runGame(audioList);
             } else  {
                 showRules();
@@ -76,21 +74,20 @@ document.addEventListener("DOMContentLoaded", function () {
             // check clicked frog to each frog in sequence and iterate through sequence
             frog.classList.add("hlFrog");
                 if (frogDivs[frogSeq[j]] === e.target.parentElement) {
-            console.log("correct");
-            // update score on successful match
-            incrementScore();
-            j++;
-            // check for end of sequence and move on to next round
-            if (j >= frogSeq.length) {
-                frogSeq = genSequence(frogSeq);
-                setTimeout(playFrogSequence, 1000, frogSeq, frogDivs, audioList)
-                j = 0;
-            }
-        } else { // if incorrect frog clicked calls gameover function
-            frog.classList.remove("hlFrog");
-            j = 0
-            gameOver();
-        }
+                    // update score on successful match
+                    incrementScore();
+                    j++;
+                // check for end of sequence and move on to next round
+                    if (j >= frogSeq.length) {
+                        frogSeq = genSequence(frogSeq);
+                        setTimeout(playFrogSequence, 1000, frogSeq, frogDivs, audioList)
+                        j = 0;
+                    }
+                } else { // if incorrect frog clicked calls gameover function
+                    frog.classList.remove("hlFrog");
+                    j = 0
+                    gameOver();
+                }
         }) 
 
         // remove highlight class from frog on audio ended event
@@ -113,8 +110,8 @@ function runGame(audioList){
 
     // play the frogs in the sequence generated above
     playFrogSequence(frogSeq, frogDivs, audioList)
-
 }
+
  /**
   * reset variables and generate first frog sequence
   */
@@ -140,29 +137,27 @@ function playFrogSequence(frogSeq, frogDivs, audioList){
     // setInterval calls the given function repeatedly every X milliseconds 
     // This will repeat forever until clearInterval is called.
     const intervalId = setInterval(playNextFrogSound, 1000, frogSeq, frogDivs, audioList);
-    
-}
 
-/**
- * plays next frog in sequence until end of sequence
- */
-function playNextFrogSound(frogSeq, frogDivs, audioList){
+        /**
+         * plays next frog in sequence until end of sequence
+         */
+        function playNextFrogSound(frogSeq, frogDivs, audioList){
 
-    if (sequenceIndex >= frogSeq.length) {
-        clearInterval(intervalId);
-        listen.style.display = "none";
-        follow.style.display = "block";
-        cover.style.display = "none";
-        return;
-    }
+            if (sequenceIndex >= frogSeq.length) {
+                clearInterval(intervalId);
+                listen.style.display = "none";
+                follow.style.display = "block";
+                cover.style.display = "none";
+                return;
+            }
 
-    let frogIndex = frogSeq[sequenceIndex];
-    flashFrog(frogDivs, frogIndex);
-    let frogSound = audioList[frogIndex];
-    frogSound.play();
-    unFlashFrog(frogDivs, frogIndex);
-    sequenceIndex += 1;
-
+            let frogIndex = frogSeq[sequenceIndex];
+            flashFrog(frogDivs, frogIndex);
+            let frogSound = audioList[frogIndex];
+            frogSound.play();
+            unFlashFrog(frogDivs, frogIndex);
+            sequenceIndex += 1;
+        }
 }
 
 /**
@@ -180,7 +175,6 @@ function toggleWelcome(menu) {
  * toggle message banner visibility on/off
  */
 function toggleBanner(banner) {
-    console.log(banner);
     if (banner.style.display === "none") {
         banner.style.display = "block";
     } else {
@@ -203,7 +197,6 @@ function genSequence(frogSeq) {
  */
 function flashFrog(frogDivs, frogIndex) {
     frogDivs[frogIndex].classList.add("hlFrog");
-
 }
 
 /**
@@ -214,12 +207,6 @@ function unFlashFrog(frogDivs, frogIndex) {
     frogDivs[frogIndex].classList.remove("hlFrog");
     })
 }
-
-/**
- * set delay timer control speed of frog 
- * sequence playback
- */
-function timer(ms) { return new Promise(res => setTimeout(res, ms)); }
 
 /**
  * hides menu and unhides rules div
@@ -260,7 +247,6 @@ function gameOver() {
         message = `<h2>Game Over!</h2><br><h3>Well that's a little dissapointing, <br>you missed your high score by ${scoreMiss}. <br>Time for Maximum Effort!<br>This is The Way!</h3>`;
         setGameOverMessage(message);
     }
-
 }
 
 /**
