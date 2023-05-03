@@ -54,8 +54,14 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     }
 
+    // set up event listener to clear rules div and return to menu
     rules.addEventListener("click", function() {
         toggleBanner(rules);
+        toggleWelcome(menu);
+    })
+
+    gameOverMessage.addEventListener("click", function() {
+        toggleBanner(gameOverMessage);
         toggleWelcome(menu);
     })
 
@@ -65,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let frog of frogDivs) {
         frog.addEventListener("click", function(e) {
             let audio = frog.getElementsByTagName("audio")[0]; 
-            // let audio = audioList[frogSeq[frog]];
             audio.currentTime = 0;
             audio.play();
             frog.classList.add("hlFrog");
@@ -243,11 +248,9 @@ function gameOver() {
         setGameOverMessage(message);
     }
 
-    setTimeout(toggleWelcome, 6000, menu);
 }
 
 function setGameOverMessage(message) {
     toggleBanner(gameOverMessage);
     gameOverMessage.innerHTML = message;
-    setTimeout(toggleBanner, 5800, gameOverMessage);
 }
