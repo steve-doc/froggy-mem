@@ -1,3 +1,4 @@
+/* importing google fonts for use in game title */
 @import url('https://fonts.googleapis.com/css2?family=Shojumaru&display=swap');
 
 body {
@@ -26,7 +27,7 @@ img {
     max-width: 100%;
 }
 
-/* Header and scoring */
+/* Header styling */
 header {
     display: flex;
     flex-direction: column;
@@ -42,8 +43,7 @@ header h1 {
     color: red;
 }
 
-
-
+/* scores styling */
 .scores {
     padding: 0 2em 1em 2em;
     color: rgb(8, 203, 252);
@@ -64,6 +64,7 @@ header h1 {
     line-height: 1em;
 }
 
+/* style main game container */
 .container {
     width: 100%;
     max-width: 1000px;
@@ -71,6 +72,7 @@ header h1 {
     position: relative;
 }
 
+/* style menu container */
 #menu-container {
     display: flex;
     box-sizing: border-box;
@@ -91,6 +93,7 @@ header h1 {
     text-shadow: 3px 3px 5px darkslategray;
 }
 
+/* style buttons */
 .btn {
     justify-content: center;
     color: silver;
@@ -106,6 +109,7 @@ header h1 {
     background-color: greenyellow;
 }
 
+/* style frogs */
 .frog {
     padding: 10px;
     transition: all 300ms;    
@@ -114,6 +118,7 @@ header h1 {
     z-index: 1;
 }
 
+/* style class to highlight frogs, added and removed by script */
 .hlFrog {
     transform: scale(1.1);
     background-color:rgb(255, 255, 240, 0.5);
@@ -156,6 +161,8 @@ header h1 {
     left: 84%;
 }
 
+/* style boxes that tell player what to do during game.  Start hidden and made visible by
+toggling display attribute in script */
 #listen {
     display: none;
     background-color: red;
@@ -184,6 +191,7 @@ header h1 {
     text-shadow: 3px 3px 5px black;
 }
 
+/* styling for gameover div.  Starts hidden, made visible by script when game over */
 #game-over {
     display: none;
     background-color: lightseagreen;
@@ -200,6 +208,7 @@ header h1 {
     text-shadow: 3px 3px 5px black;
 }
 
+/* styling for rules div.  starts hidden, made visible using script when rules button pressed */
 #rules {
     display: none;
     font-size: .8em;
@@ -217,6 +226,7 @@ header h1 {
     text-shadow: 3px 3px 5px black;
 }
 
+/* styling for div that covers game area and stops player activating frogs during playback sequence or game not active */
 #cover {
     display: block;
     position: absolute;
@@ -227,7 +237,7 @@ header h1 {
     width: 100%;
     height: 100%;
 }
-
+/* media query at max 700px screen width */
 @media screen and (max-width:700px) {
     html {
         font-size: 10px;
@@ -248,6 +258,7 @@ header h1 {
     }
 }
 
+/* media query at max 500px screen width */
 @media screen and (max-width:500px) {
 
     #menu-container {

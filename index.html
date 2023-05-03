@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- meta section -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="a fun frog memory game">
+    <meta name="keywords" content="game, frog, memory, fun, cartoon">
+    <!-- linked style sheet-->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- linked tab icon file -->
+    <link rel="icon" type="image/x-icon" href="assets/images/frogicon.ico">
     <title>Way of the Frog!</title>
 </head>
 <body>
 
     <header>
-
+        <!-- game title -->
         <div class="title">
             <h1>Way of the Frog!</h1>
         </div>
@@ -70,6 +76,7 @@
         messages depending on the player's score -->
         <div id="game-over"></div>
 
+        <!-- Hidden div that displays the rule, called by game rules button on menu -->
         <div id="rules">
             <h2>Game Rules</h2>
             <p>The aim of the game is to listen to the order that the frogs ribbit to you.  This will start off easy with a random sequence of 3.  This should present no problems, even to a novice Follower of the Frog!  Pay attention becuase it's going to get harder!</p>
@@ -96,8 +103,10 @@
 
     </div>
 
-
+    <!-- linked javascript file -->
     <script type="text/javascript" src="assets/js/script.js"></script>
+
+    <!-- link to howl audio library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
