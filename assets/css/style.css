@@ -122,36 +122,36 @@ header h1 {
 
 
 #frog0 {
-    width: 6vw;
-    height: 6vw;
+    width: 7vw;
+    height: 7vw;
     bottom: 4%;
     left: 15.5%;
 }
 
 #frog1 {
-    width: 7vw;
-    height: 7vw;
+    width: 8vw;
+    height: 8vw;
     bottom: 23%;
-    left: 37.5%;
+    left: 38%;
 }
 
 #frog2 {
-    width: 7vw;
-    height: 7vw;
+    width: 8vw;
+    height: 8vw;
     bottom: 47%;
-    left: 52%;
+    left: 52.5%;
 }
 
 #frog3 {
-    width: 6vw;
-    height: 6vw;
+    width: 7vw;
+    height: 7vw;
     bottom: 52%;
     left: 82.5%;
 }
 
 #frog4 {
-    width: 6vw;
-    height: 6vw;
+    width: 7vw;
+    height: 7vw;
     bottom: 32.5%;
     left: 84%;
 }
@@ -200,6 +200,23 @@ header h1 {
     text-shadow: 3px 3px 5px black;
 }
 
+#rules {
+    display: none;
+    font-size: .8em;
+    background-color: lightseagreen;
+    color: whitesmoke;
+    position: absolute;
+    z-index: 2;
+    bottom: 10%;
+    left: 19%;
+    width: 60%;
+    padding: 1em;
+    text-align: center;
+    box-shadow: 6px 6px 10px black;
+    border-radius: 15px;
+    text-shadow: 3px 3px 5px black;
+}
+
 #cover {
     display: block;
     position: absolute;
@@ -218,9 +235,34 @@ header h1 {
 
     #menu-container {
         font-size: 1em;
+        left: 35%;
+        bottom: 30%;
     }
 
     .btn {
         font-size: .8em;
+    }
+
+    #rules {
+        font-size: .9em;
+    }
+}
+
+@media screen and (max-width:500px) {
+
+    #menu-container {
+        font-size: 1em;
+        left: 27%;
+        bottom: 20%;
+    }
+
+    #game-over {
+        bottom: 20%;
+    }
+
+    #rules {
+        font-size: .7em;
+        width: 75%;
+        left: 10%;
     }
 }

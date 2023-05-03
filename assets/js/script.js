@@ -9,6 +9,7 @@
     let currentScore = 0;
     let bestScore = 0;
     const menu = document.getElementById("menu-container");
+    const rules = document.getElementById("rules");
     const follow = document.getElementById("follow");
     const listen = document.getElementById("listen");
     const cover = document.getElementById("cover");
@@ -16,14 +17,14 @@
     gameOverMessage.style.display = "none";
     listen.style.display = "none";
     follow.style.display = "none";
+    rules.style.display = "none";
     cover.style.display = "block";
-    console.log(cover);
-
-
-
-
     // Create an array of frog container divs
     const frogDivs = document.getElementsByClassName("frog");
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -48,10 +49,15 @@ document.addEventListener("DOMContentLoaded", function () {
  
                 runGame(audioList);
             } else  {
-                rules();
+                showRules();
         }
     })
     }
+
+    rules.addEventListener("click", function() {
+        toggleBanner(rules);
+        toggleWelcome(menu);
+    })
 
 
     // set up event listeners for each frog
@@ -204,8 +210,9 @@ function unFlashFrog(frogDivs, frogIndex) {
  */
 function timer(ms) { return new Promise(res => setTimeout(res, ms)); }
 
-function rules() {
-
+function showRules() {
+    toggleWelcome(menu);
+    toggleBanner(rules);
 }
 
 
