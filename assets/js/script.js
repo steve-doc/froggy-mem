@@ -48,20 +48,20 @@ document.addEventListener("DOMContentLoaded", function () {
             } else  {
                 showRules();
         }
-    })
+    });
     }
 
     // set up event listener to clear rules div and return to menu
     rules.addEventListener("click", function() {
         toggleBanner(rules);
         toggleWelcome(menu);
-    })
+    });
 
     // set up event listener to clear gameOver message and return to menu
     gameOverMessage.addEventListener("click", function() {
         toggleBanner(gameOverMessage);
         toggleWelcome(menu);
-    })
+    });
 
     // set up event listeners for each frog
     let j = 0
@@ -88,12 +88,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     j = 0
                     gameOver();
                 }
-        }) 
+        });
 
         // remove highlight class from frog on audio ended event
         frog.addEventListener("ended", function() {
             frog.classList.remove("hlFrog");
-        }) 
+        });
     }
 });
 
@@ -187,9 +187,9 @@ function toggleBanner(banner) {
  * will be played in.
  */
 function genSequence(frogSeq) {
-        let num1 = Math.floor(Math.random() * 5) ;
+        let num1 = Math.floor(Math.random() * 5);
         frogSeq.push(num1);     
-        return frogSeq
+        return frogSeq;
      }
 
 /**

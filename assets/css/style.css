@@ -112,6 +112,7 @@ header h1 {
 /* style frogs */
 .frog {
     padding: 10px;
+    width: 8%;
     transition: all 300ms;    
     border-radius: 50%;
     position: absolute;
@@ -127,37 +128,27 @@ header h1 {
 
 
 #frog0 {
-    width: 7vw;
-    height: 7vw;
-    bottom: 4%;
+    bottom: 3%;
     left: 15.5%;
 }
 
 #frog1 {
-    width: 8vw;
-    height: 8vw;
-    bottom: 23%;
+    bottom: 22%;
     left: 38%;
 }
 
 #frog2 {
-    width: 8vw;
-    height: 8vw;
-    bottom: 47%;
+    bottom: 46%;
     left: 52.5%;
 }
 
 #frog3 {
-    width: 7vw;
-    height: 7vw;
-    bottom: 52%;
+    bottom: 51%;
     left: 82.5%;
 }
 
 #frog4 {
-    width: 7vw;
-    height: 7vw;
-    bottom: 32.5%;
+    bottom: 31.5%;
     left: 84%;
 }
 
@@ -231,7 +222,6 @@ toggling display attribute in script */
     display: block;
     position: absolute;
     z-index: 2;
-    background-color: none;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -256,6 +246,26 @@ toggling display attribute in script */
     #rules {
         font-size: .9em;
     }
+
+    #frog0 {
+        bottom: 2%;
+    }
+    
+    #frog1 {
+        bottom: 21%;
+    }
+    
+    #frog2 {
+        bottom: 45%;
+    }
+    
+    #frog3 {
+        bottom: 50%;
+    }
+    
+    #frog4 {
+        bottom: 31.5%;
+    }
 }
 
 /* media query at max 500px screen width */
@@ -275,5 +285,30 @@ toggling display attribute in script */
         font-size: .7em;
         width: 75%;
         left: 10%;
+    }
+
+    #frog0 {
+        bottom: 1.5%;
+        left: 14.5%;
+    }
+    
+    #frog1 {
+        bottom: 20%;
+        left: 38%;
+    }
+    
+    #frog2 {
+        bottom: 44%;
+        left: 51.5%;
+    }
+    
+    #frog3 {
+        bottom: 50%;
+        left: 81.5%;
+    }
+    
+    #frog4 {
+        bottom: 30.5%;
+        left: 83%;
     }
 }
