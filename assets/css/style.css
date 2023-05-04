@@ -202,7 +202,7 @@ toggling display attribute in script */
 /* styling for rules div.  starts hidden, made visible using script when rules button pressed */
 #rules {
     display: none;
-    font-size: .8em;
+    font-size: 1em;
     background-color: lightseagreen;
     color: whitesmoke;
     position: absolute;
@@ -210,11 +210,14 @@ toggling display attribute in script */
     bottom: 10%;
     left: 19%;
     width: 60%;
+    height: 60%;
     padding: 1em;
     text-align: center;
     box-shadow: 6px 6px 10px black;
     border-radius: 15px;
     text-shadow: 3px 3px 5px black;
+    overflow:scroll;
+    overflow-x:hidden;
 }
 
 /* styling for div that covers game area and stops player activating frogs during playback sequence or game not active */
@@ -244,7 +247,7 @@ toggling display attribute in script */
     }
 
     #rules {
-        font-size: .9em;
+        font-size: 1.4em;
     }
 
     #frog0 {
@@ -282,7 +285,7 @@ toggling display attribute in script */
     }
 
     #rules {
-        font-size: .7em;
+        font-size: 1.2em;
         width: 75%;
         left: 10%;
     }
