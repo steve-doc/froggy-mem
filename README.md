@@ -1,4 +1,8 @@
-# froggy-mem
+# Way of the Frog Memory Game
+
+Follow the order that the frogs are played.  When you get it right your score acrues and the sequence gets longer.  Keep going until you make a mistake and try to beat your high score.
+
+
 
 1. Strategy
 Build a fun and challenging memory game that will engage the player.  The game theme will be a lilly pond with different coloured frogs on it.    
