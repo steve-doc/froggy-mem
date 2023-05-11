@@ -2,6 +2,39 @@
 
 Follow the order that the frogs are played.  When you get it right your score acrues and the sequence gets longer.  Keep going until you make a mistake and try to beat your high score.
 
+Link to [Live site](https://steve-doc.github.io/way_of_the_frog/)
+
+## Index - Table of Contents
+
+- [Design](#design)
+    - [Wireframes](#wireframes)
+    - [Font and Colours](#font-and-colour-choices)
+
+- [Features](#features)
+    - [Existing Features](#existing-features)
+    - [Future Features](#possible-future-features)
+
+- [UX](#ux)
+    - [Site Goals](#site-goals)
+    - [User Stories](#user-stories)
+
+- [Testing](#testing)
+    - [Validator Testing](#validator-testing)
+    - [Browser Testing](#browser-testing)
+    - [Manual Testing](#manual-testing)
+    - [Testing User Stories](#testing-user-stories)
+    - [Fixed Bugs](#fixed-bugs)
+    - [Unfixed Bugs](#unfixed-bugs)
+
+- [Deployment](#deployment)
+
+- [Credits](#credits)
+    - [Media](#media)
+    - [Code](#code)
+    - [Content](#content)
+
+## Design
+
 
 
 1. Strategy
