@@ -17,6 +17,7 @@ const gameOverMessage = document.getElementById("game-over");
 score.innerHTML = 0;
 let currentScore = 0;
 let bestScore = 0;
+let frogSeq = [];
 gameOverMessage.style.display = "none";
 listen.style.display = "none";
 follow.style.display = "none";
@@ -64,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // set up event listeners for each frog
-    let j = 0
+    let j = 0;
     for (let frog of frogDivs) {
         frog.addEventListener("click", function(e) {
             // assign audio object to each frog eventlistener so it plays audio on click
@@ -80,12 +81,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 // check for end of sequence and move on to next round
                     if (j >= frogSeq.length) {
                         frogSeq = genSequence(frogSeq);
-                        setTimeout(playFrogSequence, 1000, frogSeq, frogDivs, audioList)
+                        setTimeout(playFrogSequence, 1000, frogSeq, frogDivs, audioList);
                         j = 0;
                     }
                 } else { // if incorrect frog clicked calls gameover function
                     frog.classList.remove("hlFrog");
-                    j = 0
+                    j = 0;
                     gameOver();
                 }
         });
@@ -109,7 +110,7 @@ function runGame(audioList){
     frogSeq = initGame();
 
     // play the frogs in the sequence generated above
-    playFrogSequence(frogSeq, frogDivs, audioList)
+    playFrogSequence(frogSeq, frogDivs, audioList);
 }
 
  /**
@@ -118,18 +119,18 @@ function runGame(audioList){
 function initGame() {
     score.innerHTML = 0;
     currentScore = 0;
-    let frogSeq = []
-    for (i = 0; i < 3; i++) {
+    let frogSeq = [];
+    for (let i = 0; i < 3; i++) {
         frogSeq = genSequence(frogSeq);
     }
-    return frogSeq
+    return frogSeq;
 }
 
 /**
  * function to play sequence of frogs to player
  */
 function playFrogSequence(frogSeq, frogDivs, audioList){
-    let sequenceIndex = 0  // where we are in frogSequence
+    let sequenceIndex = 0;  // where we are in frogSequence
     follow.style.display = "none";
     listen.style.display = "block";
     cover.style.display = "block";
@@ -205,7 +206,7 @@ function flashFrog(frogDivs, frogIndex) {
 function unFlashFrog(frogDivs, frogIndex) {
     frogDivs[frogIndex].addEventListener("transitionend", function() {
     frogDivs[frogIndex].classList.remove("hlFrog");
-    })
+    });
 }
 
 /**
@@ -232,7 +233,7 @@ function gameOver() {
     follow.style.display = "none";
     cover.style.display = "block";
     gameOverMessage.innerHTML = "";
-    let message = null
+    let message = null;
     if (currentScore > bestScore) {
         let scoreImprove = currentScore - bestScore;
         bestScore = currentScore;
@@ -243,7 +244,7 @@ function gameOver() {
         message = `<h2>Game Over!</h2><br><h3>Pretty good, you equalled your High Score of ${bestScore}. <br>Let's try a little harder next time.<br>This is The Way!</h3>`;
         setGameOverMessage(message);
     } else {
-        let scoreMiss = bestScore - currentScore
+        let scoreMiss = bestScore - currentScore;
         message = `<h2>Game Over!</h2><br><h3>Well that's a little dissapointing, <br>you missed your high score by ${scoreMiss}. <br>Time for Maximum Effort!<br>This is The Way!</h3>`;
         setGameOverMessage(message);
     }
