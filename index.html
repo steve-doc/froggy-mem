@@ -42,23 +42,23 @@
         <!-- a series of divs containing different colored frog images
         that are activated either when game sequences is played or by
         the player interacting with images -->
-        <div id="frog0" class="frog"><img src="assets/images/green_froggy.webp" alt="Green frog">
+        <div aria-label="Green frog" id="frog0" class="frog"><img src="assets/images/green_froggy.webp" alt="Green frog">
             <audio src="assets/audio/greytree-frog.mp3"></audio>
         </div>
 
-        <div id="frog1" class="frog"><img src="assets/images/blue_froggy.webp" alt="Blue frog">
+        <div aria-label="Blue frog" id="frog1" class="frog"><img src="assets/images/blue_froggy.webp" alt="Blue frog">
             <audio src="assets/audio/medium-frog.mp3"></audio>
         </div>
 
-        <div id="frog2" class="frog"><img src="assets/images/red_froggy.webp" alt="Red frog">     
+        <div aria-label="Red frog" id="frog2" class="frog"><img src="assets/images/red_froggy.webp" alt="Red frog">     
             <audio src="assets/audio/small-frog.mp3"></audio> 
         </div>
 
-        <div id="frog4" class="frog"><img src="assets/images/pink_froggy.webp" alt="Pink frog">
+        <div aria-label="Pink frog" id="frog4" class="frog"><img src="assets/images/pink_froggy.webp" alt="Pink frog">
             <audio src="assets/audio/leopard-frog.mp3"></audio> 
         </div>
 
-        <div id="frog3" class="frog"><img src="assets/images/yellow_froggy.webp" alt="Yellow frog">
+        <div aria-label="Yellow frog" id="frog3" class="frog"><img src="assets/images/yellow_froggy.webp" alt="Yellow frog">
             <audio src="assets/audio/tree-frog.mp3"></audio>     
         </div>
 
@@ -75,10 +75,10 @@
 
         <!-- Hidden div that is displayed after game is over. JS populates different 
         messages depending on the player's score -->
-        <div id="game-over"></div>
+        <div aria-label="Game over message, click to return to main menu" id="game-over"></div>
 
         <!-- Hidden div that displays the rule, called by game rules button on menu -->
-        <div id="rules">
+        <div aria-label="Game instructions, click to return to menu" id="rules">
             <h2>Game Rules</h2>
             <p>The aim of the game is to listen to the order that the frogs ribbit to you.  This will start off easy with a random sequence of 3.  This should present no problems, even to a novice Follower of the Frog!  Pay attention becuase it's going to get harder!</p>
             <p>Next you will see a message at the top of the screen to "Follow the Way of the Frog".  Now it is for you, the Follower, to play back the sequence you have just listened to.  You will add a point to your score for every frog you get in the correct order.</p>
@@ -95,9 +95,9 @@
             <h2>Welcome to the Game!</h2>
 
 
-                <button class="btn" data-type="play">Play Game!</button>
+                <button aria-label="Play game button" class="btn" data-type="play">Play Game!</button>
 
-                <button class="btn" data-type="rules">Game Rules</button>
+                <button aria-label="Game instructions button" class="btn" data-type="rules">Game Rules</button>
 
 
         </div>
