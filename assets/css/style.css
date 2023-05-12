@@ -34,31 +34,31 @@ header {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    background-color: rgb(109, 170, 48);
+    background-color: rgb(136, 213, 59);
     text-align: center;
     text-shadow: 3px 3px 5px black;
 }
 
 header h1 {
-    color: red;
+    color: orangered;
 }
 
 /* scores styling */
 .scores {
     padding: 0 2em 1em 2em;
-    color: rgb(8, 203, 252);
-    text-shadow: 3px 3px 5px black;
+    color: blue;
+    /* text-shadow: 3px 3px 5px black; */
 }
 
 .counters {
-    color: whitesmoke;
+    color: purple;
 }
 
 #score-container {
     position: absolute;
     top: 0;
     width: 100%;
-    background-color: rgb(109, 170, 48);
+    background-color: rgb(136, 213, 59);
     display: flex;
     justify-content: space-between;
     line-height: 1em;

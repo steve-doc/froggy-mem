@@ -2,11 +2,15 @@
 
 Follow the order that the frogs are played.  When you get it right your score acrues and the sequence gets longer.  Keep going until you make a mistake and try to beat your high score.
 
+![Way of the Frog AM Responsive Mockup](assets/images/readme_images/am_responsive.png)
+
 Link to [Live site](https://steve-doc.github.io/way_of_the_frog/)
+
+Link to [Repository](https://github.com/steve-doc/way_of_the_frog)
 
 ## Index - Table of Contents
 
-- [Design](#design)
+- [UX](#ux)
     - [Wireframes](#wireframes)
     - [Font and Colours](#font-and-colour-choices)
 
@@ -33,9 +37,7 @@ Link to [Live site](https://steve-doc.github.io/way_of_the_frog/)
     - [Code](#code)
     - [Content](#content)
 
-## Design
-
-
+## UX
 
 ### 1. Strategy
 Build a simple, fun and challenging memory game that will engage the player.  The theme of the game will be a series of colourful frogs set on a lilly pond.
@@ -52,11 +54,26 @@ The player will 'listen' to frogs that will ribbet and be visulally highlighted 
  4. Game should start off easy and get harder as I progress.
  5. There should be a clear scoring system.
  6. I should be able to track and beat a high score.
- 
+
 ### 3. Structure
-A simple one page structure will be used.  A game menu will be displayed to begin with offering the player the opportunity to play
-4. Skeleton
-5. Surface
+A simple one page structure will be used.  
+A game menu will be displayed to begin with offering the player the opportunity to play the game or read the instructions for the game.
+All in-game messages are in the form of hidden divs, already on the page which are switched on and off as required during game.
+The header to contain the title and the scoring.
+The game play area to contain the backdrop of a lilly pond and a series of 5 colored frogs, sitting on lillies.
+
+### 4. Skeleton
+
+![Wireframe](assets/images/readme_images/wireframe.png)
+
+### 5. Surface
+
+Create a simple, colourful game area that interacts with the user in an inutuitive way and needs the minimum of instruction before commencing the game.
+
+#### Background
+
+Background pond image was sourced from vecteezy.com and has a simple cartoon feel to it.  To compliment the theme of the pond I used blue #0100FF forder to surround the game area.
+
 
 Credit
 Pond background image - https://www.vecteezy.com/vector-art/521836-a-pond-with-many-plants 
