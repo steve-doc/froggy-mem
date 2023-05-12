@@ -227,6 +227,9 @@ Tested by 10 unique players on different devices and screen sizes.
 
 1. Audio feedback seems to be inconsistent on certain mobile devices.  However had added visual feedback on same action so game still playable.
 
+2. Console error on live site - "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'"
+    - spoke to tutor support and they told me it would not effect my project and just to record in readme.  Does not appear to impact running of game.
+
 ## <a name="accessibility">Accessibility Features</a>
 
 * All images have alt labels
