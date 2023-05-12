@@ -37,12 +37,24 @@ Link to [Live site](https://steve-doc.github.io/way_of_the_frog/)
 
 
 
-1. Strategy
-Build a fun and challenging memory game that will engage the player.  The game theme will be a lilly pond with different coloured frogs on it.    
-2. Scope
-The frogs will ribbet in a random order and the player will have to play back the same order by clicking on the frogs.  Each level will last for a set amount of time, possibly 30 secs. 
- The game will get harder by the addition of more frogs as the levels progress. The player will have 3 lives which will decrement as player makes mistake, when they run out of lives the game will be over.  Possibly reset the player lives at the start of each level.  There will also be a scoring system that will increase based on the length of the sequence that the player succefully remembers.  When the game is over the player's score will be added to the high score table.
-3. Structure
+### 1. Strategy
+Build a simple, fun and challenging memory game that will engage the player.  The theme of the game will be a series of colourful frogs set on a lilly pond.
+### 2. Scope
+The player will 'listen' to frogs that will ribbet and be visulally highlighted in a random order.  The player will then have to play back, or 'follow', the same order by clicking on the frogs.  
+ The game will get harder by the addition of more frogs each time the user succesfully completes the current sequence. 
+ The player will accrue 1 point for every correct frog clicked.  
+ The game is over when the player makes a mistake.  At this point their score will be compared to the current high score.  A different game over message will be displayed depending on whether the play fails to, equals or beats the high score.
+
+ #### User stories
+ 1. I want a visually appealing game. 
+ 2. I want simple instructions to understand the game.
+ 3. Game should be intuitive to play.
+ 4. Game should start off easy and get harder as I progress.
+ 5. There should be a clear scoring system.
+ 6. I should be able to track and beat a high score.
+ 
+### 3. Structure
+A simple one page structure will be used.  A game menu will be displayed to begin with offering the player the opportunity to play
 4. Skeleton
 5. Surface
 
