@@ -1,6 +1,6 @@
 # Way of the Frog Memory Game
 
-Follow the order that the frogs are played.  When you get it right your score acrues and the sequence gets longer.  Keep going until you make a mistake and try to beat your high score.
+Follow the order that the frogs are played.  When you get it right your score accrues and the sequence gets longer.  Keep going until you make a mistake and try to beat your high score.
 
 ![Way of the Frog AM Responsive Mockup](assets/images/readme_images/am_responsive.png)
 
@@ -37,8 +37,8 @@ Link to [Repository](https://github.com/steve-doc/way_of_the_frog)
 Build a simple, fun and challenging memory game that will engage the player.  The theme of the game will be a series of colourful frogs set on a lilly pond.
 
 ### <a name="scope">Scope</a>
-The player will 'listen' to frogs that will ribbet and be visulally highlighted in a random order.  The player will then have to play back, or 'follow', the same order by clicking on the frogs.  
- The game will get harder by the addition of more frogs each time the user succesfully completes the current sequence. 
+The player will 'listen' to frogs that will ribbet and be visually highlighted in a random order.  The player will then have to play back, or 'follow', the same order by clicking on the frogs.  
+ The game will get harder by the addition of more frogs each time the user successfully completes the current sequence. 
  The player will accrue 1 point for every correct frog clicked.  
  The game is over when the player makes a mistake.  At this point their score will be compared to the current high score.  A different game over message will be displayed depending on whether the play fails to, equals or beats the high score.
 
@@ -63,15 +63,15 @@ The game play area to contain the backdrop of a lilly pond and a series of 5 col
 
 ### <a name="surface">Surface</a>
 
-Create a simple, colourful game area that interacts with the user in an inutuitive way and needs the minimum of instruction before commencing the game.
+Create a simple, colourful game area that interacts with the user in an intuitive way and needs the minimum of instruction before commencing the game.
 
 #### Background
 
-Background pond image was sourced from vecteezy.com and has a simple cartoon feel to it.  To compliment the theme of the pond I used blue #0100FF forder to surround the game area.
+Background pond image was sourced from vecteezy.com and has a simple cartoon feel to it.  To compliment the theme of the pond I used blue #0100FF border to surround the game area.
 
 #### Fonts
 
-Have used Shojumaru from Google Fonts for title to give an oriental feel to the game in keeping with name which hints at a martial art.  Hhave used default text style for the limited menu, messages and scores to aid in respnsiveness.
+Have used Shojumaru from Google Fonts for title to give an oriental feel to the game in keeping with name which hints at a martial art.  Have used default text style for the limited menu, messages and scores to aid in responsiveness.
 
 ## <a name="features">Features</a>
 
@@ -81,7 +81,7 @@ Have used Shojumaru from Google Fonts for title to give an oriental feel to the 
     - Appears when game loads.
     - Option to play game.
     - Option to view game rules.
-    - Dissapears when either of above options chosen.
+    - Disappears when either of above options chosen.
     - Reappears after game over of finished reading rules.
 ![Game menu](assets/images/readme_images/game_start.png)
 - Heading
@@ -94,11 +94,11 @@ Have used Shojumaru from Google Fonts for title to give an oriental feel to the 
 
 - High Score
     - Starts at zero when game is initially run.
-    - Update if player beats current high score.  Remembers high score until session is finished or broweser is refreshed.
+    - Update if player beats current high score.  Remembers high score until session is finished or browser is refreshed.
 
 - Game rules
     - Appear when user select "Game Rules" from game menu.
-    - Dessapears when user clicks on rules then returns to main menu.
+    - Disappears when user clicks on rules then returns to main menu.
 ![Game rules](assets/images/readme_images/game_rules.png)
 - Game backdrop
     - Cartoon image of lilly pond with 5 water lillies.
@@ -113,12 +113,12 @@ Have used Shojumaru from Google Fonts for title to give an oriental feel to the 
     - 5 different frog audio sounds sourced from https://quicksounds.com are associated with each frog.
 
 - Game play
-    - The game play is very simple.  A random sequence of frogs is first played to the player (listen phase) then the player has to click the frogs in the same sequence (follow phase).  If this is done succesfully another round starts adding another random frog to the sequence.  This is repeated until player makes a mistake.
-    - Listen phase - a banner appears in red to instruction the user to listen to the sequence of frogs.  User input is blocked in this phase.  At the end of the sequence the banner dissapears.
+    - The game play is very simple.  A random sequence of frogs is first played to the player (listen phase) then the player has to click the frogs in the same sequence (follow phase).  If this is done successfully another round starts adding another random frog to the sequence.  This is repeated until player makes a mistake.
+    - Listen phase - a banner appears in red to instruction the user to listen to the sequence of frogs.  User input is blocked in this phase.  At the end of the sequence the banner disappears.
 ![Listen phase](assets/images/readme_images/game_listen.png)    
-    - Follow phase - a green banner appears to instruct the player to playback the sequence.  User input is enabled.  Banner dissapears either when the player succesfully replays the sequence or makes a mistake.
+    - Follow phase - a green banner appears to instruct the player to playback the sequence.  User input is enabled.  Banner disappears either when the player successfully replays the sequence or makes a mistake.
 ![Follow phase](assets/images/readme_images/game_follow.png)    
-    - Score - The score increments by 1 every time the user succesfully clicks a frog in the correct sequence during the Follow phase.
+    - Score - The score increments by 1 every time the user successfully clicks a frog in the correct sequence during the Follow phase.
 
 
 - Game over
@@ -147,10 +147,13 @@ Used to provide style, layout and responsiveness to my website.
 Used for the logic of the gameplay and to update the DOM based on game updates and specific conditions.
 
 ### Google Fonts
-Used for all the fonts on my website. Fontjoy website was used to find complimentary fonts.
+Used for all the fonts on my website. 
 
 ### XnViewMP Photo Editing Software
-Used for sizing, cropping and format coversion of images.
+Used for sizing, cropping and format conversion of images.
+
+### Vector 2 Express
+Used to edit audio files.
 
 ## <a name="testing">Testing</a>
 
@@ -205,18 +208,18 @@ Tested by 10 unique players on different devices and screen sizes.
 | Expectation   | Result    |
 | :---------------------------------: | :------------------------------:|
 | I want a visually appealing game. | Games has colorful cartoon like feel.  Clear images and visual and audio feedback on interaction with game components. |
-| I want simple instructions to understand the game. | Games instructions are immediately accessable from main menu. Instructions are clear. Also ingame cues help with gameplay. |
+| I want simple instructions to understand the game. | Games instructions are immediately accessible from main menu. Instructions are clear. Also in-game cues help with gameplay. |
 | Game should be intuitive to play. | Testers were able to consistently play game without reading instructions |
-| Game should start off easy and get harder as I progress. | Games starts with simple 3 frog sequence and progressively gets longer. Verbally told users of previous high score and this made them quite competative. Would have been aided with future ability to have pervasive high score functionality |
+| Game should start off easy and get harder as I progress. | Games starts with simple 3 frog sequence and progressively gets longer. Verbally told users of previous high score and this made them quite competitive. Would have been aided with future ability to have pervasive high score functionality |
 | There should be a clear scoring system. | Very simple scoring system, always visible and increments 1 at a time. |
-| I should be able to track and beat a high score. | High score works well although only lasts for current session.  Would improve with pervasive hagh score functionaility |
+| I should be able to track and beat a high score. | High score works well although only lasts for current session.  Would improve with pervasive high score functionality |
 
 ### Fixed bugs
 
 1. Intermittently when clicking on frog audio not playing.
     - Resolved by using Howl audio library to store audio files in an array.
 2. When playing audio sequence if there are repeats of the same audio it will only play the audio once.
-    - Had to overcome the asynchronos nature of Javascript and prevent playing audio files simultaniously.  Credit to my mentor, Brian Macharia who helped me understand how to use setInterval function to overcome this.
+    - Had to overcome the asynchronous nature of Javascript and prevent playing audio files simultaneously.  Credit to my mentor, Brian Macharia who helped me understand how to use setInterval function to overcome this.
 3. Score incrementing by multiples after first game.  Event listeners getting added again.
     - Discovered that additional event listeners were getting created on each running of the game which triggered the score getting incremented multiple times.  Move event listener outside of game function so were only created once.
 
@@ -248,8 +251,16 @@ To run locally:
 Alternatively you can **Clone** or **Fork** this repository into your GitHub account.
 
 
-## <a name="credit">Credit</a>
+## <a name="credits">Credit</a>
 
-Pond background image - https://www.vecteezy.com/vector-art/521836-a-pond-with-many-plants 
+### Media
+Pond background and frog images - https://www.vecteezy.com
 frog sounds - https://quicksounds.com/search/filter/tracks/frog and edited with Vector 2 Exress
+
+### Code
+My mentor Brian Macharia helped me structure the playFrogSequence function to overcome a bug I was struggling to overcome where, due to the asynchronous nature of JavaScript all the audio files were playing at the same time.  This involved using the setInterval function to create a delay while one audio file finished playing before the next file commenced.
+
+
+### Acknowledgement
+I would like to further acknowledge my mentor, Brian Macharia, who rescued me from a few rabbit holes and brought calmness of thought when I was struggling on this project.  I feel he went above and beyond what was required.
 
