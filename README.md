@@ -25,7 +25,7 @@ Link to [Repository](https://github.com/steve-doc/way_of_the_frog)
 
 - [Testing](#testing)
 
-- [Accessibility Features](accessibility)
+- [Accessibility Features](#accessibility)
 
 - [Deployment](#deployment)
 
